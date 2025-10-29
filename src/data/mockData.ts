@@ -59,6 +59,8 @@ export const mockWeddingData: WeddingData = {
     { id: "4", url: "/images/gallery-4.jpg", alt: "웨딩 사진 4" },
     { id: "5", url: "/images/gallery-5.jpg", alt: "웨딩 사진 5" },
     { id: "6", url: "/images/gallery-6.jpg", alt: "웨딩 사진 6" },
+    { id: "7", url: "/images/gallery-7.jpg", alt: "웨딩 사진 7" },
+    { id: "8", url: "/images/gallery-8.jpg", alt: "웨딩 사진 8" },
   ],
   interview: [
     {

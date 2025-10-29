@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCoverflow, Pagination, Navigation } from "swiper/modules";
+import { Pagination, Navigation } from "swiper/modules";
 import type { WeddingData } from "../types";
+import { IoClose } from "react-icons/io5"; // 추가
 
 // Import Swiper styles
 import "swiper/css";
-import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
@@ -20,10 +20,14 @@ export const Gallery: React.FC<GalleryProps> = ({ data }) => {
   const openModal = (index: number) => {
     setInitialSlide(index);
     setIsModalOpen(true);
+    // 스크롤 막기
+    document.body.style.overflow = "hidden";
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
+    // 스크롤 복원
+    document.body.style.overflow = "unset";
   };
 
   return (
@@ -46,41 +50,39 @@ export const Gallery: React.FC<GalleryProps> = ({ data }) => {
       </div>
 
       {isModalOpen && (
-        <div className="modal-overlay" onClick={closeModal}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close" onClick={closeModal}>
-              ✕
-            </button>
-            <div className="gallery-swiper-container">
-              <Swiper
-                effect={"coverflow"}
-                grabCursor={true}
-                centeredSlides={true}
-                slidesPerView={"auto"}
-                initialSlide={initialSlide}
-                coverflowEffect={{
-                  rotate: 50,
-                  stretch: 0,
-                  depth: 100,
-                  modifier: 1,
-                  slideShadows: true,
-                }}
-                pagination={{
-                  clickable: true,
-                }}
-                navigation={true}
-                modules={[EffectCoverflow, Pagination, Navigation]}
-                className="gallery-swiper"
-              >
-                {data.gallery.map((image) => (
-                  <SwiperSlide key={image.id}>
+        <div className="modal-overlay">
+          <button
+            className="modal-close"
+            onClick={(e) => {
+              e.stopPropagation();
+              closeModal();
+            }}
+          >
+            <IoClose />
+          </button>
+          <div className="gallery-swiper-wrapper">
+            <Swiper
+              initialSlide={initialSlide}
+              loop={true}
+              spaceBetween={0}
+              slidesPerView={1}
+              pagination={{
+                clickable: true,
+              }}
+              navigation={true}
+              modules={[Pagination, Navigation]}
+              className="gallery-modal-swiper"
+            >
+              {data.gallery.map((image) => (
+                <SwiperSlide key={image.id}>
+                  <div className="modal-image-container">
                     <div className="modal-image-placeholder">
                       <p className="placeholder-text">사진 {image.id}</p>
                     </div>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
         </div>
       )}
