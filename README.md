@@ -48,5 +48,5 @@ npm install
 npm run dev
 
 # 4. 브라우저에서 확인
-# http://localhost:5173
+# http://localhost:5174
 ```
