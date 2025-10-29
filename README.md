@@ -28,25 +28,6 @@
 본 사이트는 **Cloudflare Pages**를 통해 자동 배포(CI/CD)됩니다.
 
 1. **GitHub Repository**에 코드를 푸시하면
-2. **Cloudflare Pages**가 자동으로 빌드 및 배포를 수행합니다.
+2. **Cloudflare Pages**가 자동으로 빌드 및 배포를 수행.
 3. 최종 결과물은 아래 URL에서 확인할 수 있습니다.  
    👉 **[https://naeun-mintae-wedding.pages.dev/](https://naeun-mintae-wedding.pages.dev/)**
-
----
-
-## 🧭 로컬 개발 방법
-
-```bash
-# 1. 프로젝트 클론
-git clone https://github.com/<your-username>/<your-repo-name>.git
-cd <your-repo-name>
-
-# 2. 패키지 설치
-npm install
-
-# 3. 로컬 실행
-npm run dev
-
-# 4. 브라우저에서 확인
-# http://localhost:5174
-```
