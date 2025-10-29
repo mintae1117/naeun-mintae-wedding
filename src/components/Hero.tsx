@@ -1,13 +1,36 @@
-import React from 'react';
-import type { WeddingData } from '../types';
+import React, { useState } from "react";
+import type { WeddingData } from "../types";
+import { IoMusicalNotes, IoClose } from "react-icons/io5";
 
 interface HeroProps {
   data: WeddingData;
 }
 
 export const Hero: React.FC<HeroProps> = ({ data }) => {
+  const [isPlaying, setIsPlaying] = useState(true);
+
+  const toggleMusic = () => {
+    setIsPlaying(!isPlaying);
+    // TODO: 나중에 음악 재생/정지 로직 추가
+    // if (!isPlaying) {
+    //   audioRef.current?.play();
+    // } else {
+    //   audioRef.current?.pause();
+    // }
+  };
+
   return (
     <section className="hero-section">
+      {/* 고정 음악 버튼 */}
+      <button
+        className={`music-control-fixed ${isPlaying ? "playing" : ""}`}
+        onClick={toggleMusic}
+        aria-label={isPlaying ? "음악 정지" : "음악 재생"}
+      >
+        <IoMusicalNotes className="music-icon" />
+        {!isPlaying && <IoClose className="music-off-icon" />}
+      </button>
+
       <div className="hero-content">
         <h1 className="hero-title">결혼합니다</h1>
 
@@ -26,10 +49,6 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
           <div className="photo-box">
             <p className="placeholder-text">메인 사진</p>
           </div>
-        </div>
-
-        <div className="music-control">
-          <button className="music-toggle">🎵 배경음악</button>
         </div>
       </div>
     </section>

@@ -109,23 +109,63 @@ section {
   font-size: 14px;
 }
 
-.music-control {
-  margin-top: 30px;
-}
-
-.music-toggle {
-  padding: 10px 20px;
-  background-color: rgba(255, 255, 255, 0.9);
-  border: 1px solid #ddd;
-  border-radius: 25px;
+/* Fixed Music Control Button */
+.music-control-fixed {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.95);
+  border: 2px solid #8b7355;
+  border-radius: 50%;
   cursor: pointer;
-  font-size: 14px;
-  transition: all 0.3s;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.music-toggle:hover {
+.music-control-fixed:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
   background-color: #fff;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.music-control-fixed:active {
+  transform: scale(0.95);
+}
+
+.music-icon {
+  font-size: 24px;
+  color: #8b7355;
+  transition: color 0.3s;
+}
+
+.music-control-fixed.playing .music-icon {
+  color: #ff6b6b;
+  animation: pulse 1.5s infinite;
+}
+
+.music-off-icon {
+  position: absolute;
+  font-size: 32px;
+  color: #ff6b6b;
+  font-weight: bold;
+  pointer-events: none;
+}
+
+/* Pulse animation for playing state */
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
 }
 
 /* Invitation Section */
@@ -1042,6 +1082,22 @@ section {
   .calendar-header h3 {
     font-size: 20px;
   }
+
+  /* Music Button Responsive */
+  .music-control-fixed {
+    width: 45px;
+    height: 45px;
+    top: 15px;
+    right: 15px;
+  }
+
+  .music-icon {
+    font-size: 22px;
+  }
+
+  .music-off-icon {
+    font-size: 28px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1125,5 +1181,21 @@ section {
   .countdown-divider {
     font-size: 20px;
     padding: 0 2px;
+  }
+
+  /* Music Button Mobile */
+  .music-control-fixed {
+    width: 40px;
+    height: 40px;
+    top: 10px;
+    right: 10px;
+  }
+
+  .music-icon {
+    font-size: 20px;
+  }
+
+  .music-off-icon {
+    font-size: 26px;
   }
 }
