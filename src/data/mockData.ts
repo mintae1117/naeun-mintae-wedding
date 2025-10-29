@@ -21,23 +21,33 @@ export const mockWeddingData: WeddingData = {
   weddingTime: "오후 2시",
   venue: {
     name: "아벤티움 웨딩 서울",
-    address: "서울특별시 강남구 논현로 742 (논현동)",
-    phone: "02-512-0000",
-    floor: "5층",
+    address: "서울특별시 중구 청파로 464 브라운스톤서울 3층",
+    phone: "02-313-2480",
+    floor: "3층",
     hall: "그랜드홀",
-    mapUrl: "https://map.naver.com/v5/search/아벤티움%20웨딩%20서울",
+    mapUrl: "https://map.naver.com/v5/search/브라운스톤서울",
     transportation: [
       {
         type: "subway",
-        description: "9호선 언주역 4번 출구 도보 3분 거리",
+        description: "2, 5호선 충정로역 4번 출구 도보 3분",
+      },
+      {
+        type: "subway",
+        description: "1, 4호선 서울역 15번출구(공항철도역) 도보 10분",
       },
       {
         type: "bus",
-        description: "147, 463, 4211번 버스 이용 (언주역 하차)",
+        description:
+          "한국경제신문사 하차 - [간선] 370, 603 [지선] 7011, 7013A, 7013B, 7017",
       },
       {
-        type: "shuttle",
-        description: "언주역 4번 출구 앞 셔틀버스 15분 간격 운행",
+        type: "bus",
+        description:
+          "경찰청·동북아역사재단 하차 - [간선] 103, 150, 701, 704, 708, 709, 742, 750A",
+      },
+      {
+        type: "bus",
+        description: "서울역서부 하차 - [간선] 173, 261, 262, 463, 503, 604",
       },
     ],
     parking: "건물 내 지하 주차장 이용 가능 (3시간 무료)",
@@ -77,7 +87,7 @@ export const mockWeddingData: WeddingData = {
     },
     {
       question: "새로운 가정의 첫 터전은?",
-      groomAnswer: "서울 강남구 근처에 신혼집을 마련했습니다.",
+      groomAnswer: "서울 사당 근처에 신혼집을 마련했습니다.",
       brideAnswer: "아늑하고 따뜻한 공간으로 함께 꾸며갈 예정이에요.",
     },
   ],
