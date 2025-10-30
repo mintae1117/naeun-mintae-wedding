@@ -46,9 +46,13 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
         </div>
 
         <div className="main-photo-placeholder">
-          <div className="photo-box">
-            <p className="placeholder-text">메인 사진</p>
-          </div>
+          <img
+            src={`${import.meta.env.VITE_R2_BASE_URL}/${
+              import.meta.env.VITE_R2_WEDDING_FOLDER
+            }/${import.meta.env.VITE_MAIN_HERO_IMAGE}`}
+            alt="웨딩 메인 사진"
+            className="main-photo"
+          />
         </div>
       </div>
     </section>

@@ -42,9 +42,12 @@ export const Gallery: React.FC<GalleryProps> = ({ data }) => {
             className="gallery-item"
             onClick={() => openModal(index)}
           >
-            <div className="image-placeholder">
-              <p className="placeholder-text">사진 {image.id}</p>
-            </div>
+            <img
+              src={image.url}
+              alt={image.alt}
+              className="gallery-image"
+              loading="lazy"
+            />
           </div>
         ))}
       </div>
@@ -76,9 +79,11 @@ export const Gallery: React.FC<GalleryProps> = ({ data }) => {
               {data.gallery.map((image) => (
                 <SwiperSlide key={image.id}>
                   <div className="modal-image-container">
-                    <div className="modal-image-placeholder">
-                      <p className="placeholder-text">사진 {image.id}</p>
-                    </div>
+                    <img
+                      src={image.url}
+                      alt={image.alt}
+                      className="modal-image"
+                    />
                   </div>
                 </SwiperSlide>
               ))}
