@@ -149,6 +149,9 @@ section {
   z-index: 10;
   opacity: 0.8;
 
+  filter: drop-shadow(0 1px 4px rgba(70, 70, 70, 0.15))
+    drop-shadow(0 2px 4px rgba(16, 16, 16, 0.1));
+
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
