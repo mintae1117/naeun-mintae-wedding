@@ -16,7 +16,8 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.volume = 0.5; // 볼륨 50%로 설정
-      audioRef.current.play()
+      audioRef.current
+        .play()
         .then(() => {
           setIsPlaying(true);
         })
@@ -34,7 +35,8 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
         audioRef.current.pause();
         setIsPlaying(false);
       } else {
-        audioRef.current.play()
+        audioRef.current
+          .play()
           .then(() => {
             setIsPlaying(true);
           })
@@ -62,10 +64,16 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
         {!isPlaying && <IoClose className="music-off-icon" />}
       </button>
 
-      <Snowfall snowflakeCount={20} color="white" style={{zIndex: '101'}} />
+      <Snowfall snowflakeCount={20} color="white" style={{ zIndex: "101" }} />
 
       <div className="hero-content">
-        <h1 className="hero-title">결혼합니다</h1>
+        <div className="hero-title-image">
+          <img
+            src="/wemarry01.png"
+            alt="결혼합니다"
+            className="hero-title-img"
+          />
+        </div>
 
         <div className="couple-names">
           <span className="groom-name">{data.groom.name}</span>
