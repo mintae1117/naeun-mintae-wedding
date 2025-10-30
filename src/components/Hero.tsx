@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import type { WeddingData } from "../types";
 import { IoMusicalNotes, IoClose } from "react-icons/io5";
+import { getMainHeroImageUrl } from "../config/r2";
 
 interface HeroProps {
   data: WeddingData;
@@ -47,9 +48,7 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
 
         <div className="main-photo-placeholder">
           <img
-            src={`${import.meta.env.VITE_R2_BASE_URL}/${
-              import.meta.env.VITE_R2_WEDDING_FOLDER
-            }/${import.meta.env.VITE_MAIN_HERO_IMAGE}`}
+            src={getMainHeroImageUrl()}
             alt="웨딩 메인 사진"
             className="main-photo"
           />

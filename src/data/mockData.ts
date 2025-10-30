@@ -1,11 +1,5 @@
 import type { WeddingData } from "../types";
-
-// Helper function to build R2 image URL
-const getImageUrl = (filename: string): string => {
-  return `${import.meta.env.VITE_R2_BASE_URL}/${
-    import.meta.env.VITE_R2_WEDDING_FOLDER
-  }/${filename}`;
-};
+import { getGalleryImages } from "../config/r2";
 
 export const mockWeddingData: WeddingData = {
   groom: {
@@ -69,48 +63,7 @@ export const mockWeddingData: WeddingData = {
       mother: "이어머니",
     },
   },
-  gallery: [
-    {
-      id: "1",
-      url: getImageUrl(import.meta.env.VITE_GALLERY_IMAGE_01),
-      alt: "웨딩 사진 1",
-    },
-    {
-      id: "2",
-      url: getImageUrl(import.meta.env.VITE_GALLERY_IMAGE_02),
-      alt: "웨딩 사진 2",
-    },
-    {
-      id: "3",
-      url: getImageUrl(import.meta.env.VITE_GALLERY_IMAGE_03),
-      alt: "웨딩 사진 3",
-    },
-    {
-      id: "4",
-      url: getImageUrl(import.meta.env.VITE_GALLERY_IMAGE_04),
-      alt: "웨딩 사진 4",
-    },
-    {
-      id: "5",
-      url: getImageUrl(import.meta.env.VITE_GALLERY_IMAGE_05),
-      alt: "웨딩 사진 5",
-    },
-    {
-      id: "6",
-      url: getImageUrl(import.meta.env.VITE_GALLERY_IMAGE_06),
-      alt: "웨딩 사진 6",
-    },
-    {
-      id: "7",
-      url: getImageUrl(import.meta.env.VITE_GALLERY_IMAGE_07),
-      alt: "웨딩 사진 7",
-    },
-    {
-      id: "8",
-      url: getImageUrl(import.meta.env.VITE_GALLERY_IMAGE_08),
-      alt: "웨딩 사진 8",
-    },
-  ],
+  gallery: getGalleryImages(),
   interview: [
     {
       question: "결혼을 결심한 이유는?",
