@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import type { WeddingData } from "../types";
-import { IoMusicalNotes, IoClose } from "react-icons/io5";
+import { IoMusicalNotes, IoClose, IoHeart } from "react-icons/io5";
 import { getMainHeroImageUrl } from "../config/r2";
 import Snowfall from "react-snowfall";
 
@@ -9,20 +9,49 @@ interface HeroProps {
 }
 
 export const Hero: React.FC<HeroProps> = ({ data }) => {
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  // 컴포넌트 마운트 시 자동 재생 시도
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.volume = 0.5; // 볼륨 50%로 설정
+      audioRef.current.play()
+        .then(() => {
+          setIsPlaying(true);
+        })
+        .catch((error) => {
+          // 자동 재생이 차단된 경우 (브라우저 정책)
+          console.log("Autoplay was prevented:", error);
+          setIsPlaying(false);
+        });
+    }
+  }, []);
 
   const toggleMusic = () => {
-    setIsPlaying(!isPlaying);
-    // TODO: 나중에 음악 재생/정지 로직 추가
-    // if (!isPlaying) {
-    //   audioRef.current?.play();
-    // } else {
-    //   audioRef.current?.pause();
-    // }
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause();
+        setIsPlaying(false);
+      } else {
+        audioRef.current.play()
+          .then(() => {
+            setIsPlaying(true);
+          })
+          .catch((error) => {
+            console.log("Play failed:", error);
+          });
+      }
+    }
   };
 
   return (
     <section className="hero-section">
+      {/* 배경 음악 */}
+      <audio ref={audioRef} loop>
+        <source src="/ihearSymphony.mp3" type="audio/mpeg" />
+      </audio>
+
       {/* 고정 음악 버튼 */}
       <button
         className={`music-control-fixed ${isPlaying ? "playing" : ""}`}
@@ -40,7 +69,7 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
 
         <div className="couple-names">
           <span className="groom-name">{data.groom.name}</span>
-          <span className="heart"> ♥ </span>
+          <IoHeart className="heart-icon" />
           <span className="bride-name">{data.bride.name}</span>
         </div>
 

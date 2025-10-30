@@ -73,6 +73,13 @@ section {
   margin: 0 10px;
 }
 
+.heart-icon {
+  color: #ff6b6b;
+  font-size: 24px;
+  margin: 0 10px;
+  vertical-align: middle;
+}
+
 .wedding-date {
   margin-bottom: 40px;
   color: #5d4037;
@@ -161,6 +168,11 @@ section {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
+/* 음악 버튼 펄스 효과 */
+.music-control-fixed.pulse {
+  animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
 .music-control-fixed:hover {
   transform: scale(1.1);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
@@ -198,6 +210,45 @@ section {
   }
   50% {
     transform: scale(1.1);
+  }
+}
+
+/* Pulse ring animation for music button */
+@keyframes pulse-ring {
+  0%, 100% {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 0 0 0 rgba(139, 115, 85, 0.7);
+  }
+  50% {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 0 0 10px rgba(139, 115, 85, 0);
+  }
+}
+
+/* 음악 재생 안내 메시지 */
+.music-hint {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 10px 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 998;
+  animation: fade-in-out 3s ease-in-out infinite;
+}
+
+.music-hint p {
+  margin: 0;
+  font-size: 13px;
+  color: #8b7355;
+  font-weight: 500;
+}
+
+@keyframes fade-in-out {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
   }
 }
 
@@ -1159,6 +1210,16 @@ section {
   .music-off-icon {
     font-size: 28px;
   }
+
+  .music-hint {
+    top: 70px;
+    right: 15px;
+    padding: 8px 12px;
+  }
+
+  .music-hint p {
+    font-size: 12px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1268,5 +1329,15 @@ section {
 
   .music-off-icon {
     font-size: 26px;
+  }
+
+  .music-hint {
+    top: 60px;
+    right: 10px;
+    padding: 6px 10px;
+  }
+
+  .music-hint p {
+    font-size: 11px;
   }
 }
