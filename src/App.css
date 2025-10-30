@@ -88,17 +88,51 @@ section {
   color: #6d4c41;
 }
 
+.snowfall-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100; /* 높은 z-index */
+  pointer-events: none; /* 클릭 이벤트 통과 */
+}
+
 .main-photo-placeholder {
   margin: 40px 0;
+  position: relative;
 }
 
 .main-photo {
-  width: 300px;
-  height: 400px;
+  width: 360px;
+  height: 480px;
   object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
   margin: 0 auto;
+  display: block;
+  transform: rotate(-3deg);
+}
+
+/* 테이프 효과 */
+.photo-tape {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 120px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.5);
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.6) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0.6) 100%
+  );
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1),
+    inset 0 1px 1px rgba(255, 255, 255, 0.8);
+  z-index: 10;
+  opacity: 0.9;
 }
 
 .photo-box {
@@ -1063,8 +1097,13 @@ section {
   }
 
   .main-photo {
-    width: 250px;
-    height: 350px;
+    width: 320px;
+    height: 420px;
+  }
+
+  .photo-tape {
+    width: 100px;
+    height: 35px;
   }
 
   .photo-box {
@@ -1135,6 +1174,16 @@ section {
 @media (max-width: 480px) {
   section {
     padding: 40px 15px;
+  }
+
+  .main-photo {
+    width: 280px;
+    height: 380px;
+  }
+
+  .photo-tape {
+    width: 90px;
+    height: 30px;
   }
 
   .map-buttons {
