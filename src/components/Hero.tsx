@@ -87,7 +87,11 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
         </div>
 
         <div className="main-photo-placeholder">
-          <div className="photo-tape"></div>
+          <img
+            src="/tape01.png"
+            alt="테이프"
+            className="photo-tape"
+          />
           <img
             src={getMainHeroImageUrl()}
             alt="웨딩 메인 사진"
