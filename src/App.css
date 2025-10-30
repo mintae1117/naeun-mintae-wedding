@@ -1086,6 +1086,7 @@ section {
   .gallery-modal-swiper .swiper-button-prev {
     width: 20px;
     height: 20px;
+    padding: 5px;
   }
 
   .gallery-modal-swiper .swiper-button-next:after,

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import type { WeddingData } from "../types";
 import { IoMusicalNotes, IoClose } from "react-icons/io5";
 import { getMainHeroImageUrl } from "../config/r2";
+import Snowfall from "react-snowfall";
 
 interface HeroProps {
   data: WeddingData;
@@ -31,6 +32,8 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
         <IoMusicalNotes className="music-icon" />
         {!isPlaying && <IoClose className="music-off-icon" />}
       </button>
+
+      <Snowfall snowflakeCount={20} color="white" />
 
       <div className="hero-content">
         <h1 className="hero-title">결혼합니다</h1>
