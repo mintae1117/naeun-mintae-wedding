@@ -149,8 +149,6 @@ section {
   z-index: 10;
   opacity: 0.8;
   -webkit-opacity: 0.8; /* Safari용 */
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 
