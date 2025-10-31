@@ -67,6 +67,15 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
       <Snowfall snowflakeCount={20} color="white" style={{ zIndex: "101" }} />
 
       <div className="hero-content">
+        <div className="main-photo-placeholder">
+          <img src="/tape01.png" alt="테이프" className="photo-tape" />
+          <img
+            src={getMainHeroImageUrl()}
+            alt="웨딩 메인 사진"
+            className="main-photo"
+          />
+        </div>
+
         <div className="hero-title-image">
           <img
             src="/wemarry01.png"
@@ -84,19 +93,6 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
         <div className="wedding-date">
           <p className="date">{data.weddingDate}</p>
           <p className="time">{data.weddingTime}</p>
-        </div>
-
-        <div className="main-photo-placeholder">
-          <img
-            src="/tape01.png"
-            alt="테이프"
-            className="photo-tape"
-          />
-          <img
-            src={getMainHeroImageUrl()}
-            alt="웨딩 메인 사진"
-            className="main-photo"
-          />
         </div>
       </div>
     </section>

@@ -63,7 +63,7 @@ section {
 }
 
 .hero-title-image {
-  margin-bottom: 10px;
+  margin-bottom: 3px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -105,12 +105,12 @@ section {
 }
 
 .time {
-  font-size: 16px;
+  font-size: 18px;
   color: #6d4c41;
 }
 
 .main-photo-placeholder {
-  margin: 40px 0;
+  margin: 30px 0;
   position: relative;
 }
 
@@ -118,7 +118,7 @@ section {
   width: 360px;
   height: 480px;
   object-fit: cover;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
   margin: 0 auto;
   display: block;
   transform: rotate(-3deg);
@@ -241,7 +241,7 @@ section {
 @keyframes pulse {
   0%,
   100% {
-    transform: scale(1);
+    transform: scale(0.9);
   }
   50% {
     transform: scale(1.1);
