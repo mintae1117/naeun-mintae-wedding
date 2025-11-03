@@ -193,8 +193,8 @@ section {
   position: fixed;
   top: 20px;
   right: 20px;
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   background-color: rgba(255, 255, 255, 0.95);
   border: 2px solid #8b7355;
   border-radius: 50%;
@@ -502,7 +502,7 @@ section {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.95);
+  background-color: rgba(0, 0, 0, 0.85);
   z-index: 1000;
 }
 
@@ -512,7 +512,7 @@ section {
   right: 20px;
   background: none;
   border: none;
-  color: rgb(90, 90, 90);
+  color: white;
   font-size: 40px;
   cursor: pointer;
   z-index: 1002;
@@ -526,7 +526,7 @@ section {
 
 .modal-close:hover {
   transform: scale(1.2);
-  color: rgb(120, 120, 120);
+  color: white;
 }
 
 .gallery-swiper-wrapper {
@@ -582,7 +582,7 @@ section {
 }
 
 .gallery-modal-swiper .swiper-pagination-bullet {
-  background-color: rgb(90, 90, 90);
+  background-color: white;
   opacity: 0.5;
   width: 8px;
   height: 8px;
@@ -590,7 +590,7 @@ section {
 
 .gallery-modal-swiper .swiper-pagination-bullet-active {
   opacity: 1;
-  background-color: rgb(90, 90, 90);
+  background-color: white;
 }
 
 .gallery-modal-swiper .swiper-button-next,
@@ -602,6 +602,7 @@ section {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
   transition: all 0.3s;
+  padding: 5px;
 }
 
 .gallery-modal-swiper .swiper-button-next:hover,
