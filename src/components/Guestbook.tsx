@@ -1,26 +1,66 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import type { WeddingData, GuestbookEntry } from '../types';
 
 interface GuestbookProps {
   data: WeddingData;
 }
 
+const API_URL = '/api/guestbook';
+
 export const Guestbook: React.FC<GuestbookProps> = ({ data }) => {
   const [entries, setEntries] = useState<GuestbookEntry[]>(data.guestbook);
   const [showForm, setShowForm] = useState(false);
   const [newEntry, setNewEntry] = useState({ author: '', message: '' });
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const entry: GuestbookEntry = {
-      id: String(Date.now()),
-      author: newEntry.author,
-      message: newEntry.message,
-      date: new Date().toISOString().split('T')[0],
+  // 방명록 데이터 가져오기
+  useEffect(() => {
+    const fetchGuestbook = async () => {
+      try {
+        const response = await fetch(API_URL);
+        if (!response.ok) throw new Error('방명록을 불러올 수 없습니다');
+        const data = await response.json();
+        setEntries(data);
+      } catch (err) {
+        console.error('Error fetching guestbook:', err);
+        // API 실패 시 mockData 사용
+        setEntries(data.guestbook);
+      }
     };
-    setEntries([entry, ...entries]);
-    setNewEntry({ author: '', message: '' });
-    setShowForm(false);
+
+    fetchGuestbook();
+  }, [data.guestbook]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch(API_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          author: newEntry.author,
+          message: newEntry.message,
+        }),
+      });
+
+      if (!response.ok) throw new Error('메시지를 등록할 수 없습니다');
+
+      const savedEntry = await response.json();
+      setEntries([savedEntry, ...entries]);
+      setNewEntry({ author: '', message: '' });
+      setShowForm(false);
+    } catch (err) {
+      console.error('Error submitting guestbook entry:', err);
+      setError(err instanceof Error ? err.message : '메시지 등록에 실패했습니다');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -38,6 +78,7 @@ export const Guestbook: React.FC<GuestbookProps> = ({ data }) => {
 
         {showForm && (
           <form className="guestbook-form" onSubmit={handleSubmit}>
+            {error && <div className="error-message">{error}</div>}
             <input
               type="text"
               placeholder="이름"
@@ -45,6 +86,7 @@ export const Guestbook: React.FC<GuestbookProps> = ({ data }) => {
               value={newEntry.author}
               onChange={(e) => setNewEntry({ ...newEntry, author: e.target.value })}
               required
+              disabled={isLoading}
             />
             <textarea
               placeholder="축하 메시지를 입력해주세요"
@@ -52,9 +94,10 @@ export const Guestbook: React.FC<GuestbookProps> = ({ data }) => {
               value={newEntry.message}
               onChange={(e) => setNewEntry({ ...newEntry, message: e.target.value })}
               required
+              disabled={isLoading}
             />
-            <button type="submit" className="form-submit">
-              등록하기
+            <button type="submit" className="form-submit" disabled={isLoading}>
+              {isLoading ? '등록 중...' : '등록하기'}
             </button>
           </form>
         )}
