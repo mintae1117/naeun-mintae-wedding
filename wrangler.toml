@@ -1,5 +1,5 @@
 name = "mt-naeun-wedding"
-main = "functions/guestbook.ts"
+main = "functions/api/guestbook.ts"
 compatibility_date = "2025-10-04"
 
 [[d1_databases]]
