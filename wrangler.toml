@@ -1,3 +1,7 @@
+name = "mt-naeun-wedding"
+main = "functions/guestbook.ts"
+compatibility_date = "2025-10-04"
+
 [[d1_databases]]
 binding = "my_wedding"
 database_name = "my-wedding"
