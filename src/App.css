@@ -726,7 +726,7 @@ section {
   color: white;
   font-weight: 700;
   font-size: 16px;
-  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.6);
   transform: scale(1.1);
 }
 

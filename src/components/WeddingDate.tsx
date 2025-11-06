@@ -1,9 +1,28 @@
 import React, { useState, useEffect, useMemo } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface WeddingDateProps {
   weddingDate: string; // "2026.10.25"
   weddingTime: string; // "오후 2시"
 }
+
+// 애니메이션 숫자 컴포넌트
+const AnimatedNumber: React.FC<{ value: string | number }> = ({ value }) => {
+  return (
+    <AnimatePresence mode="popLayout">
+      <motion.span
+        key={value}
+        initial={{ rotateX: -90, opacity: 0 }}
+        animate={{ rotateX: 0, opacity: 1 }}
+        exit={{ rotateX: 90, opacity: 0 }}
+        transition={{ duration: 0.5, ease: "easeInOut" }}
+        style={{ display: "inline-block" }}
+      >
+        {value}
+      </motion.span>
+    </AnimatePresence>
+  );
+};
 
 export const WeddingDate: React.FC<WeddingDateProps> = ({
   weddingDate,
@@ -92,9 +111,7 @@ export const WeddingDate: React.FC<WeddingDateProps> = ({
 
       <div className="wedding-date-content">
         <div className="date-info">
-          <p className="date-text">
-            {weddingDate}
-          </p>
+          <p className="date-text">{weddingDate}</p>
           <p className="time-text">{weddingTime}</p>
         </div>
 
@@ -141,27 +158,35 @@ export const WeddingDate: React.FC<WeddingDateProps> = ({
           <p className="countdown-label">결혼식까지</p>
           <div className="countdown-timer">
             <div className="countdown-item">
-              <span className="countdown-value">{timeLeft.days}</span>
+              <span className="countdown-value">
+                <AnimatedNumber value={timeLeft.days} />
+              </span>
               <span className="countdown-unit">DAYS</span>
             </div>
             <div className="countdown-divider">:</div>
             <div className="countdown-item">
               <span className="countdown-value">
-                {String(timeLeft.hours).padStart(2, "0")}
+                <AnimatedNumber
+                  value={String(timeLeft.hours).padStart(2, "0")}
+                />
               </span>
               <span className="countdown-unit">HOURS</span>
             </div>
             <div className="countdown-divider">:</div>
             <div className="countdown-item">
               <span className="countdown-value">
-                {String(timeLeft.minutes).padStart(2, "0")}
+                <AnimatedNumber
+                  value={String(timeLeft.minutes).padStart(2, "0")}
+                />
               </span>
               <span className="countdown-unit">MINUTES</span>
             </div>
             <div className="countdown-divider">:</div>
             <div className="countdown-item">
               <span className="countdown-value">
-                {String(timeLeft.seconds).padStart(2, "0")}
+                <AnimatedNumber
+                  value={String(timeLeft.seconds).padStart(2, "0")}
+                />
               </span>
               <span className="countdown-unit">SECONDS</span>
             </div>
