@@ -43,11 +43,12 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     const body = (await context.request.json()) as {
       author: string;
       message: string;
+      password: string;
     };
 
-    if (!body.author || !body.message) {
+    if (!body.author || !body.message || !body.password) {
       return new Response(
-        JSON.stringify({ error: "Author and message are required" }),
+        JSON.stringify({ error: "Author, message, and password are required" }),
         {
           status: 400,
           headers: { "Content-Type": "application/json" },
@@ -60,9 +61,9 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
 
     await context.env.my_wedding
       .prepare(
-        "INSERT INTO guestbook (id, author, message, date) VALUES (?, ?, ?, ?)"
+        "INSERT INTO guestbook (id, author, message, password, date) VALUES (?, ?, ?, ?, ?)"
       )
-      .bind(id, body.author, body.message, date)
+      .bind(id, body.author, body.message, body.password, date)
       .run();
 
     const newEntry: GuestbookEntry = {
@@ -96,7 +97,7 @@ export const onRequestOptions: PagesFunction = async () => {
   return new Response(null, {
     headers: {
       "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+      "Access-Control-Allow-Methods": "GET, POST, DELETE, OPTIONS",
       "Access-Control-Allow-Headers": "Content-Type",
     },
   });

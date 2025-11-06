@@ -2,6 +2,7 @@ CREATE TABLE IF NOT EXISTS guestbook (
   id TEXT PRIMARY KEY,
   author TEXT NOT NULL,
   message TEXT NOT NULL,
+  password TEXT NOT NULL,
   date TEXT NOT NULL,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
