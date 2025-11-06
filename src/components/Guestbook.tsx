@@ -169,12 +169,8 @@ export const Guestbook: React.FC<GuestbookProps> = ({ data }) => {
             <div key={entry.id} className="guestbook-entry">
               <div className="entry-header">
                 <span className="entry-author">{entry.author}</span>
-                <div
-                  style={{ display: "flex", gap: "8px", alignItems: "center" }}
-                >
-                  <span className="entry-date">{entry.date}</span>
+                <div style={{ display: "flex", alignItems: "center" }}>
                   <button
-                    className="delete-btn"
                     onClick={() => {
                       if (deleteTarget === entry.id) {
                         setDeleteTarget(null);
@@ -215,18 +211,29 @@ export const Guestbook: React.FC<GuestbookProps> = ({ data }) => {
                     onClick={() => handleDelete(entry.id)}
                     disabled={isLoading}
                     style={{
-                      padding: "8px 16px",
+                      padding: "12px 16px",
                       cursor: "pointer",
                       border: "1px solid #ff4444",
                       borderRadius: "4px",
                       background: "#ff4444",
                       color: "white",
+                      height: "100%",
                     }}
                   >
                     {isLoading ? "삭제 중..." : "확인"}
                   </button>
                 </div>
               )}
+              <div
+                style={{
+                  display: "flex",
+                  gap: "8px",
+                  alignItems: "center",
+                  justifyContent: "flex-end",
+                }}
+              >
+                <span className="entry-date">{entry.date}</span>
+              </div>
             </div>
           ))}
         </div>

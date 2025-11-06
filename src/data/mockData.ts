@@ -90,13 +90,6 @@ export const mockWeddingData: WeddingData = {
       message: "결혼 진심으로 축하해! 행복하게 잘 살아~(예시)",
       date: "2025-10-20",
     },
-    {
-      id: "2",
-      author: "박동료",
-      message:
-        "두 분의 앞날에 사랑과 웃음이 가득하길 바랍니다. 진심으로 축하드려요!(예시)",
-      date: "2025-10-21",
-    },
   ],
   accounts: {
     groom: [
