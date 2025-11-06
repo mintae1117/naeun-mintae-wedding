@@ -189,6 +189,7 @@ export const Guestbook: React.FC<GuestbookProps> = ({ data }) => {
                       border: "1px solid #ddd",
                       borderRadius: "4px",
                       background: "white",
+                      color: "black",
                     }}
                   >
                     {deleteTarget === entry.id ? "취소" : "삭제"}
@@ -218,6 +219,7 @@ export const Guestbook: React.FC<GuestbookProps> = ({ data }) => {
                       background: "#ff4444",
                       color: "white",
                       height: "100%",
+                      fontSize: "14px",
                     }}
                   >
                     {isLoading ? "삭제 중..." : "확인"}
