@@ -64,7 +64,7 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
         {!isPlaying && <IoClose className="music-off-icon" />}
       </button>
 
-      <Snowfall snowflakeCount={20} color="white" style={{ zIndex: "101" }} />
+      <Snowfall snowflakeCount={25} color="white" style={{ zIndex: "101" }} />
 
       <div className="hero-content">
         <div className="main-photo-placeholder">
@@ -78,7 +78,7 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
 
         <div className="hero-title-image">
           <img
-            src="/wemarry01.png"
+            src="/wemarry02.png"
             alt="결혼합니다"
             className="hero-title-img"
           />
