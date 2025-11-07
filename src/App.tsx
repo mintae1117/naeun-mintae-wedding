@@ -14,7 +14,9 @@ import "./App.css";
 function App() {
   return (
     <div className="app">
-      <Hero data={mockWeddingData} />
+      <ScrollReveal direction="fade" delay={0.15}>
+        <Hero data={mockWeddingData} />
+      </ScrollReveal>
 
       <ScrollReveal direction="up" delay={0.15}>
         <Invitation data={mockWeddingData} />

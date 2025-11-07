@@ -47,6 +47,11 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
     }
   };
 
+  const snowflake2 = document.createElement("img");
+  snowflake2.src = "/snowflake02.png";
+
+  const images = [snowflake2];
+
   return (
     <section className="hero-section">
       {/* 배경 음악 */}
@@ -64,7 +69,13 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
         {!isPlaying && <IoClose className="music-off-icon" />}
       </button>
 
-      <Snowfall snowflakeCount={20} color="#fdadbc" style={{ zIndex: "101" }} />
+      <Snowfall
+        snowflakeCount={20}
+        color="#fdadbc"
+        style={{ zIndex: "101" }}
+        radius={[10.0, 15.0]}
+        images={images}
+      />
 
       <div className="hero-content">
         <div className="main-photo-placeholder">
