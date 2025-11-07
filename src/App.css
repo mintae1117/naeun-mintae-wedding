@@ -47,7 +47,6 @@ section {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #ffffff 0%, #fdadbc 100%);
   padding: 40px 20px;
 }
 
@@ -80,15 +79,11 @@ section {
   font-size: 28px;
   margin-bottom: 20px;
   color: #4a4a4a;
-}
-
-.heart {
-  color: #ff6b6b;
-  margin: 0 10px;
+  vertical-align: middle;
 }
 
 .heart-icon {
-  color: #ff6b6b;
+  color: #fdadbc;
   font-size: 24px;
   margin: 0 10px;
   vertical-align: middle;
@@ -295,7 +290,7 @@ section {
 
 /* Invitation Section */
 .invitation-section {
-  background-color: #fff;
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
 }
 
 .invitation-content {

@@ -64,7 +64,7 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
         {!isPlaying && <IoClose className="music-off-icon" />}
       </button>
 
-      <Snowfall snowflakeCount={25} color="white" style={{ zIndex: "101" }} />
+      <Snowfall snowflakeCount={20} color="#fdadbc" style={{ zIndex: "101" }} />
 
       <div className="hero-content">
         <div className="main-photo-placeholder">
