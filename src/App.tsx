@@ -7,6 +7,7 @@ import { Location } from "./components/Location";
 import { Information } from "./components/Information";
 import { Guestbook } from "./components/Guestbook";
 import { Account } from "./components/Account";
+import { ScrollReveal } from "./components/ScrollReveal";
 import { mockWeddingData } from "./data/mockData";
 import "./App.css";
 
@@ -14,17 +15,41 @@ function App() {
   return (
     <div className="app">
       <Hero data={mockWeddingData} />
-      <Invitation data={mockWeddingData} />
-      <Interview data={mockWeddingData} />
-      <Gallery data={mockWeddingData} />
-      <WeddingDate
-        weddingDate={mockWeddingData.weddingDate}
-        weddingTime={mockWeddingData.weddingTime}
-      />
-      <Location data={mockWeddingData} />
-      <Information />
-      <Guestbook data={mockWeddingData} />
-      <Account data={mockWeddingData} />
+
+      <ScrollReveal direction="up" delay={0.15}>
+        <Invitation data={mockWeddingData} />
+      </ScrollReveal>
+
+      <ScrollReveal direction="fade" delay={0.2}>
+        <Interview data={mockWeddingData} />
+      </ScrollReveal>
+
+      <ScrollReveal direction="up" delay={0.15}>
+        <Gallery data={mockWeddingData} />
+      </ScrollReveal>
+
+      <ScrollReveal direction="fade" delay={0.15}>
+        <WeddingDate
+          weddingDate={mockWeddingData.weddingDate}
+          weddingTime={mockWeddingData.weddingTime}
+        />
+      </ScrollReveal>
+
+      <ScrollReveal direction="up" delay={0.15}>
+        <Location data={mockWeddingData} />
+      </ScrollReveal>
+
+      <ScrollReveal direction="fade" delay={0.2}>
+        <Information />
+      </ScrollReveal>
+
+      <ScrollReveal direction="up" delay={0.15}>
+        <Guestbook data={mockWeddingData} />
+      </ScrollReveal>
+
+      <ScrollReveal direction="fade" delay={0.15}>
+        <Account data={mockWeddingData} />
+      </ScrollReveal>
 
       <footer className="footer">
         <p>© 2026 Mintae & Naeun Wedding</p>
