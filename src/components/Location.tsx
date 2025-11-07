@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaSubway, FaBus, FaShuttleVan } from 'react-icons/fa';
 import type { WeddingData } from '../types';
 
 interface LocationProps {
@@ -33,9 +34,9 @@ export const Location: React.FC<LocationProps> = ({ data }) => {
           {data.venue.transportation.map((transport, index) => (
             <div key={index} className="transport-item">
               <span className="transport-icon">
-                {transport.type === 'subway' && '🚇'}
-                {transport.type === 'bus' && '🚌'}
-                {transport.type === 'shuttle' && '🚐'}
+                {transport.type === 'subway' && <FaSubway />}
+                {transport.type === 'bus' && <FaBus />}
+                {transport.type === 'shuttle' && <FaShuttleVan />}
               </span>
               <p className="transport-description">{transport.description}</p>
             </div>
