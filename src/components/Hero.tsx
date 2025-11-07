@@ -51,7 +51,7 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
     <section className="hero-section">
       {/* 배경 음악 */}
       <audio ref={audioRef} loop>
-        <source src="/ihearSymphony.mp3" type="audio/mpeg" />
+        <source src="/Howell-Magic.mp3" type="audio/mpeg" />
       </audio>
 
       {/* 고정 음악 버튼 */}
