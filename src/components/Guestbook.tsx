@@ -214,9 +214,9 @@ export const Guestbook: React.FC<GuestbookProps> = ({ data }) => {
                     style={{
                       padding: "12px 16px",
                       cursor: "pointer",
-                      border: "1px solid #ff4444",
+                      border: "1px solid #8B7355",
                       borderRadius: "4px",
-                      background: "#ff4444",
+                      background: "#8B7355",
                       color: "white",
                       height: "100%",
                       fontSize: "14px",
