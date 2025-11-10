@@ -23,16 +23,12 @@ export const GroqChatbot = () => {
 
   const openChatbot = () => {
     setIsOpen(true);
-    // 스크롤 막기
-    document.body.style.overflow = "hidden";
     // 히스토리에 상태 추가 (뒤로가기 대응)
     window.history.pushState({ chatbotOpen: true }, "");
   };
 
   const closeChatbot = () => {
     setIsOpen(false);
-    // 스크롤 복원
-    document.body.style.overflow = "unset";
   };
 
   const scrollToBottom = () => {

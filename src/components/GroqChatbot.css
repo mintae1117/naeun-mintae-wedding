@@ -254,14 +254,12 @@
 /* Mobile Responsiveness */
 @media (max-width: 480px) {
   .chatbot-window {
-    bottom: 0;
-    right: 0;
-    left: 0;
-    width: 100%;
-    max-width: 100%;
-    height: 100vh;
-    max-height: 100vh;
-    border-radius: 0;
+    bottom: 16px;
+    right: 16px;
+    width: calc(100vw - 32px);
+    max-width: 360px;
+    height: 500px;
+    max-height: calc(100vh - 100px);
   }
 
   .chatbot-button {
@@ -273,6 +271,18 @@
 
   .chatbot-message {
     max-width: 85%;
+  }
+
+  .chatbot-header {
+    padding: 14px 16px;
+  }
+
+  .chatbot-messages {
+    padding: 16px;
+  }
+
+  .chatbot-input-container {
+    padding: 12px;
   }
 }
 
