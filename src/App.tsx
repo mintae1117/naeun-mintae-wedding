@@ -8,6 +8,7 @@ import { Information } from "./components/Information";
 import { Guestbook } from "./components/Guestbook";
 import { Account } from "./components/Account";
 import { ScrollReveal } from "./components/ScrollReveal";
+import { GroqChatbot } from "./components/GroqChatbot";
 import { mockWeddingData } from "./data/mockData";
 import "./App.css";
 
@@ -56,6 +57,8 @@ function App() {
       <footer className="footer">
         <p>© 2026 Mintae & Naeun Wedding</p>
       </footer>
+
+      <GroqChatbot />
     </div>
   );
 }
