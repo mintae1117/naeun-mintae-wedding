@@ -1060,7 +1060,7 @@ section {
 
 /* Account Section */
 .account-section {
-  background-color: #fff;
+  background: linear-gradient(135deg, #fff4e0 0%, #fdadbc 100%);
 }
 
 .account-content {

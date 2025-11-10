@@ -5,17 +5,17 @@ export const mockWeddingData: WeddingData = {
   groom: {
     name: "김민태",
     englishName: "Kim Mintae",
-    phone: "010-1234-5678",
-    father: "김아버지",
-    mother: "김어머니",
+    phone: "010-2245-8201",
+    father: "김철범",
+    mother: "이미영",
     relation: "장남",
   },
   bride: {
     name: "김나은",
     englishName: "Kim Naeun",
-    phone: "010-9876-5432",
-    father: "이아버지",
-    mother: "이어머니",
+    phone: "010-4775-5909",
+    father: "김완기",
+    mother: "이미희",
     relation: "차녀",
   },
   weddingDate: "2026.10.25 (일요일)",
@@ -25,7 +25,7 @@ export const mockWeddingData: WeddingData = {
     address: "서울특별시 중구 청파로 464 브라운스톤서울 3층",
     phone: "02-313-2480",
     floor: "3층",
-    hall: "그랜드홀",
+    hall: "아벤티움 단독홀",
     mapUrl: "https://map.naver.com/v5/search/브라운스톤서울",
     transportation: [
       {
@@ -55,12 +55,12 @@ export const mockWeddingData: WeddingData = {
   },
   parents: {
     groom: {
-      father: "김아버지",
-      mother: "김어머니",
+      father: "김철범",
+      mother: "이미영",
     },
     bride: {
-      father: "이아버지",
-      mother: "이어머니",
+      father: "김완기",
+      mother: "이미희",
     },
   },
   gallery: getGalleryImages(),
@@ -79,8 +79,8 @@ export const mockWeddingData: WeddingData = {
     },
     {
       question: "새로운 가정의 첫 터전은?",
-      groomAnswer: "서울 사당 근처에 신혼집을 마련했습니다.",
-      brideAnswer: "아늑하고 따뜻한 공간으로 함께 꾸며갈 예정이에요.",
+      groomAnswer: "서울 사당 근처에서 삶의 터전을 시작할 계획입니다.",
+      brideAnswer: "사당에서 시작해 앞으로 함께 꾸려갈 예정이에요.",
     },
   ],
   guestbook: [
@@ -95,11 +95,11 @@ export const mockWeddingData: WeddingData = {
     groom: [
       {
         holder: "김민태",
-        bank: "국민은행",
+        bank: "카카오뱅크",
         accountNumber: "123-456-789012",
       },
       {
-        holder: "김아버지",
+        holder: "김철범",
         bank: "신한은행",
         accountNumber: "110-123-456789",
       },
@@ -111,7 +111,7 @@ export const mockWeddingData: WeddingData = {
         accountNumber: "1002-123-456789",
       },
       {
-        holder: "이아버지",
+        holder: "김완기",
         bank: "KB국민은행",
         accountNumber: "123456-01-123456",
       },
