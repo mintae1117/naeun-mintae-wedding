@@ -209,7 +209,7 @@
   padding: 12px 16px;
   border: 1px solid #e5e7eb;
   border-radius: 24px;
-  font-size: 14px;
+  font-size: 16px;
   outline: none;
   transition: border-color 0.2s;
 }
@@ -297,7 +297,7 @@
   }
 
   .chatbot-input {
-    font-size: 13px;
+    font-size: 16px;
     padding: 10px 14px;
   }
 }
