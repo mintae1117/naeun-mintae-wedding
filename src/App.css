@@ -878,20 +878,86 @@ section {
   gap: 10px;
   justify-content: center;
   margin-top: 20px;
+  flex-wrap: wrap;
 }
 
 .map-btn {
-  padding: 10px 20px;
-  border: 1px solid #ddd;
-  background-color: #fff;
-  border-radius: 5px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 15px;
+  font-weight: 600;
   transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .map-btn:hover {
-  background-color: #f5f5f5;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.map-btn:active {
+  transform: translateY(0);
+}
+
+.map-btn-icon {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 네이버 지도 버튼 */
+.map-btn.naver-map {
+  background-color: #03c75a;
+}
+
+.map-btn.naver-map:hover {
+  background-color: #02b350;
+}
+
+/* 카카오맵 버튼 */
+.map-btn.kakao-map {
+  background-color: #fee500;
+  color: #3c1e1e;
+}
+
+.map-btn.kakao-map:hover {
+  background-color: #fdd835;
+}
+
+.kakao-icon {
+  width: 20px;
+  height: 20px;
+  background-color: #3c1e1e;
+  color: #fee500;
+  border-radius: 4px;
+  font-weight: 900;
+  font-size: 14px;
+}
+
+/* 티맵 버튼 */
+.map-btn.tmap {
+  background-color: #ff4f4f;
+}
+
+.map-btn.tmap:hover {
+  background-color: #e64545;
+}
+
+.tmap-icon {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  color: #ff4f4f;
+  border-radius: 4px;
+  font-weight: 900;
+  font-size: 14px;
 }
 
 /* Information Section */
