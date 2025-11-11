@@ -39,11 +39,11 @@ export const GroqChatbot = () => {
     scrollToBottom();
   }, [messages]);
 
-//   useEffect(() => {
-//     if (isOpen && inputRef.current) {
-//       inputRef.current.focus();
-//     }
-//   }, [isOpen]);
+  //   useEffect(() => {
+  //     if (isOpen && inputRef.current) {
+  //       inputRef.current.focus();
+  //     }
+  //   }, [isOpen]);
 
   // 뒤로가기 버튼 처리
   useEffect(() => {

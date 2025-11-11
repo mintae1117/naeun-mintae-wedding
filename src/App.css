@@ -228,10 +228,14 @@ section {
   animation: pulse 1.5s infinite;
 }
 
+.music-control-fixed.playing {
+  border: 2px solid #ff6b6b;
+}
+
 .music-off-icon {
   position: absolute;
-  font-size: 32px;
-  color: #ff6b6b;
+  font-size: 36px;
+  color: #8b7355;
   font-weight: bold;
   pointer-events: none;
 }
@@ -1324,7 +1328,7 @@ section {
   }
 
   .music-off-icon {
-    font-size: 28px;
+    font-size: 32px;
   }
 
   .music-hint {
@@ -1449,7 +1453,7 @@ section {
   }
 
   .music-off-icon {
-    font-size: 26px;
+    font-size: 30px;
   }
 
   .music-hint {

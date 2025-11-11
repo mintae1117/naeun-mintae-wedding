@@ -11,6 +11,7 @@ import { ScrollReveal } from "./components/ScrollReveal";
 import { GroqChatbot } from "./components/GroqChatbot";
 import { mockWeddingData } from "./data/mockData";
 import "./App.css";
+import { BgMusic } from "./components/BgMusic";
 // import WeddingQRCode from "./components/QRCode";
 
 function App() {
@@ -61,6 +62,7 @@ function App() {
         <p>© 2026 Mintae & Naeun Wedding</p>
       </footer>
 
+      <BgMusic />
       <GroqChatbot />
     </div>
   );
