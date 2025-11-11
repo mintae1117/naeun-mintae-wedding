@@ -29,7 +29,7 @@ interface GroqResponse {
   };
 }
 
-const SYSTEM_PROMPT = `당신은 김민태와 김나은의 결혼식을 안내하는 친절한 AI 어시스턴트입니다.
+const SYSTEM_PROMPT = `저는 김민태와 김나은의 결혼식을 안내하는 친절한 AI 어시스턴트입니다.
 
 결혼식 정보:
 - 신랑: 김민태 (Kim Mintae) - 010-2245-8201
@@ -63,7 +63,12 @@ const SYSTEM_PROMPT = `당신은 김민태와 김나은의 결혼식을 안내�
 - 김나은: 우리은행 1002-123-456789
 - 이아버지: KB국민은행 123456-01-123456
 
-결혼식에 대해 물어보시면 친절하게 안내해드리겠습니다. 짧고 명확하게 답변해주세요.`;
+모바일 청첩장 url:
+- https://naeun-mintae-wedding.pages.dev/
+QRCode 이미지 경로:
+- https://naeun-mintae-wedding.pages.dev/mt-naeun-wedding-qr.png
+
+결혼식에 대해 물어보시면 친절하게 안내해드리겠습니다.`;
 
 export const onRequestPost: PagesFunction<Env> = async (context) => {
   try {

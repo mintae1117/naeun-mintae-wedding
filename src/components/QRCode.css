@@ -1,0 +1,93 @@
+/* WeddingQRCode.css */
+.qr-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.qr-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+.qr-code-wrapper {
+  margin-bottom: 16px;
+}
+
+.qr-description {
+  margin-top: 16px;
+  color: #666;
+  text-align: center;
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.qr-buttons {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.qr-button {
+  padding: 10px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+}
+
+.qr-button-svg {
+  background-color: #ec4899;
+}
+
+.qr-button-svg:hover {
+  background-color: #db2777;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(236, 72, 153, 0.3);
+}
+
+.qr-button-png {
+  background-color: #3b82f6;
+}
+
+.qr-button-png:hover {
+  background-color: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.qr-button:active {
+  transform: translateY(0);
+}
+
+/* 반응형 */
+@media (max-width: 640px) {
+  .qr-container {
+    padding: 24px;
+    max-width: 100%;
+  }
+
+  .qr-title {
+    font-size: 20px;
+  }
+
+  .qr-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .qr-button {
+    width: 100%;
+  }
+}

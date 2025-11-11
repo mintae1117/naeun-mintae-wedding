@@ -11,6 +11,7 @@ import { ScrollReveal } from "./components/ScrollReveal";
 import { GroqChatbot } from "./components/GroqChatbot";
 import { mockWeddingData } from "./data/mockData";
 import "./App.css";
+// import WeddingQRCode from "./components/QRCode";
 
 function App() {
   return (
@@ -53,6 +54,8 @@ function App() {
       <ScrollReveal direction="fade" delay={0.15}>
         <Account data={mockWeddingData} />
       </ScrollReveal>
+
+      {/* <WeddingQRCode /> */}
 
       <footer className="footer">
         <p>© 2026 Mintae & Naeun Wedding</p>
