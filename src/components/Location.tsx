@@ -1,4 +1,5 @@
-import React from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React, { useEffect, useRef } from "react";
 import { FaSubway, FaBus, FaShuttleVan } from "react-icons/fa";
 import { SiNaver } from "react-icons/si";
 import type { WeddingData } from "../types";
@@ -7,24 +8,84 @@ interface LocationProps {
   data: WeddingData;
 }
 
+declare global {
+  interface Window {
+    kakao: {
+      maps: any;
+    };
+  }
+}
+
 export const Location: React.FC<LocationProps> = ({ data }) => {
+  const mapContainer = useRef<HTMLDivElement>(null);
   const handleNaverMap = () => {
-    window.open(
-      "https://map.naver.com/p/search/아벤티움%20웨딩%20서울?c=15.00,0,0,0,dh",
-      "_blank"
-    );
+    window.open("https://naver.me/FV7Yg9qI", "_blank");
   };
 
   const handleKakaoMap = () => {
-    window.open(
-      "https://map.kakao.com/link/map/아벤티움 웨딩 서울,37.5606354720402,126.96576637587354",
-      "_blank"
-    );
+    window.open("https://place.map.kakao.com/8282484", "_blank");
   };
 
   const handleTmap = () => {
-    window.open("https://tmap.life/cd1e9ac5", "_blank");
+    const placeName = "아벤티움";
+    const longitude = 126.96814500189701;
+    const latitude = 37.560983379051315;
+
+    const tmapUrl = `tmap://route?rGoName=${encodeURIComponent(
+      placeName
+    )}&rGoX=${longitude}&rGoY=${latitude}`;
+    window.open(tmapUrl, "_blank");
   };
+
+  useEffect(() => {
+    if (mapContainer.current && window.kakao) {
+      const { kakao } = window;
+
+      // 카카오맵 로드 확인
+      if (kakao.maps) {
+        // 아벤티움 웨딩 서울 좌표 (브라운스톤서울 3층)
+        const position = new kakao.maps.LatLng(
+          37.560983379051315,
+          126.96814500189701
+        );
+
+        const options = {
+          center: position,
+          level: 3, // 지도 확대 레벨
+          scrollwheel: false, // 마우스 휠 줌 비활성화
+        };
+
+        // 지도 생성
+        const map = new kakao.maps.Map(mapContainer.current, options);
+
+        // 줌 컨트롤 추가 (우측 상단에 +/- 버튼)
+        const zoomControl = new kakao.maps.ZoomControl();
+        map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+
+        // 마커 생성
+        const marker = new kakao.maps.Marker({
+          position: position,
+          map: map,
+        });
+
+        // 인포윈도우 생성
+        const infowindow = new kakao.maps.InfoWindow({
+          content:
+            '<div style="padding:5px;font-size:12px;text-align:center;">채플 웨딩홀 아벤티움 서울</div>',
+        });
+
+        // 마커에 마우스오버 이벤트 등록
+        kakao.maps.event.addListener(marker, "mouseover", () => {
+          infowindow.open(map, marker);
+        });
+
+        // 마커에 마우스아웃 이벤트 등록
+        kakao.maps.event.addListener(marker, "mouseout", () => {
+          infowindow.close();
+        });
+      }
+    }
+  }, []);
 
   return (
     <section className="location-section">
@@ -42,16 +103,14 @@ export const Location: React.FC<LocationProps> = ({ data }) => {
         </div>
 
         <div className="map-placeholder">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.763497834203!2d126.96576637587354!3d37.5606354720402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca3e6071c73b5%3A0x1488b7d00e97fa63!2z7JWE67Kk7Yuw7JuAIOybqOuUqe2ZgA!5e0!3m2!1sko!2skr!4v1762747136736!5m2!1sko!2skr"
-            width="100%"
-            height="300"
-            style={{ border: 0, borderRadius: "10px" }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            title="아벤티움 웨딩 서울 지도"
-          ></iframe>
+          <div
+            ref={mapContainer}
+            style={{
+              width: "100%",
+              height: "300px",
+              borderRadius: "10px",
+            }}
+          ></div>
         </div>
 
         <div className="transportation-info">
