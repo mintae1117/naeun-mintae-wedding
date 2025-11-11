@@ -1,9 +1,25 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { IoClose, IoMusicalNotes } from "react-icons/io5";
 
 export const BgMusic = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
   const audioRef = useRef<HTMLAudioElement>(null);
+
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.volume = 0.5; // 볼륨 50%로 설정
+      audioRef.current
+        .play()
+        .then(() => {
+          setIsPlaying(true);
+        })
+        .catch((error) => {
+          // 자동 재생이 차단된 경우 (브라우저 정책)
+          console.log("Autoplay was prevented:", error);
+          setIsPlaying(false);
+        });
+    }
+  }, []);
 
   const toggleMusic = () => {
     if (audioRef.current) {
