@@ -19,22 +19,20 @@ declare global {
 export const Location: React.FC<LocationProps> = ({ data }) => {
   const mapContainer = useRef<HTMLDivElement>(null);
   const handleNaverMap = () => {
-    window.open("https://naver.me/FV7Yg9qI", "_blank");
+    window.open("https://naver.me/FV7Yg9qI");
   };
 
   const handleKakaoMap = () => {
-    window.open("https://place.map.kakao.com/8282484", "_blank");
+    window.open("https://place.map.kakao.com/8282484");
   };
 
   const handleTmap = () => {
-    const placeName = "아벤티움";
+    const placeName = encodeURIComponent("아벤티움");
     const longitude = 126.96814500189701;
     const latitude = 37.560983379051315;
 
-    const tmapUrl = `tmap://route?rGoName=${encodeURIComponent(
-      placeName
-    )}&rGoX=${longitude}&rGoY=${latitude}`;
-    window.open(tmapUrl, "_blank");
+    const tmapUrl = `tmap://route?rGoName=${placeName}&rGoX=${longitude}&rGoY=${latitude}`;
+    window.open(tmapUrl);
   };
 
   useEffect(() => {
