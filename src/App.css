@@ -812,6 +812,8 @@ section {
 
 .map-placeholder {
   margin: 30px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
 }
 
 .map-box {
@@ -848,7 +850,7 @@ section {
 }
 
 .transport-icon {
-  font-size: 20px;
+  font-size: 18px;
   margin-right: 10px;
 }
 
