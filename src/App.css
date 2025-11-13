@@ -236,8 +236,6 @@ section {
   position: absolute;
   font-size: 36px;
   color: #8b7355;
-  font-weight: bold;
-  pointer-events: none;
 }
 
 /* Pulse animation for playing state */
