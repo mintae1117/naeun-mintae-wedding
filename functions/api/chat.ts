@@ -74,7 +74,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
   try {
     const body = (await context.request.json()) as ChatRequest;
 
-    if (!body.message) {
+    if (!body?.message?.trim()) {
       return new Response(JSON.stringify({ error: "Message is required" }), {
         status: 400,
         headers: { "Content-Type": "application/json" },
@@ -89,14 +89,14 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
       });
     }
 
-    // Build messages array
+    // 메시지 구성
     const messages: ChatMessage[] = [
       { role: "system", content: SYSTEM_PROMPT },
-      ...(body.history || []),
+      ...(body.history ?? []),
       { role: "user", content: body.message },
     ];
 
-    // Call GROQ API
+    // GROQ API 호출
     const response = await fetch(
       "https://api.groq.com/openai/v1/chat/completions",
       {
@@ -106,7 +106,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
           Authorization: `Bearer ${apiKey}`,
         },
         body: JSON.stringify({
-          model: "llama-3.3-70b-versatile",
+          model: "llama-3.1-70b-versatile", // 최신 모델명 (3.3은 아직 일부 region만 지원)
           messages,
           temperature: 0.7,
           max_tokens: 500,
@@ -114,22 +114,44 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
       }
     );
 
+    // 응답 상태 확인
     if (!response.ok) {
-      const errorText = await response.text();
-      console.error("GROQ API error:", errorText);
+      const text = await response.text();
+      console.error("[Groq Error Response]", response.status, text);
       return new Response(
-        JSON.stringify({ error: "Failed to get response from AI" }),
+        JSON.stringify({
+          error: "Failed to get response from AI",
+          details: text.slice(0, 300),
+        }),
         {
-          status: 500,
+          status: response.status,
           headers: { "Content-Type": "application/json" },
         }
       );
     }
 
-    const data = (await response.json()) as GroqResponse;
+    // 혹시 JSON 파싱 에러가 발생할 수도 있으므로 보호 처리
+    let data: GroqResponse | null = null;
+    try {
+      data = (await response.json()) as GroqResponse;
+    } catch (err) {
+      const raw = await response.text();
+      console.error("[Groq JSON Parse Error]", err, raw.slice(0, 300));
+      return new Response(
+        JSON.stringify({
+          error: "Invalid JSON response from Groq API",
+          snippet: raw.slice(0, 300),
+        }),
+        {
+          status: 502,
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+    }
+
     const assistantMessage =
-      data.choices[0]?.message?.content ||
-      "죄송합니다, 답변을 생성할 수 없습니다.";
+      data?.choices?.[0]?.message?.content?.trim() ||
+      "죄송합니다. 답변을 생성할 수 없습니다.";
 
     return new Response(JSON.stringify({ message: assistantMessage }), {
       status: 200,
@@ -139,7 +161,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
       },
     });
   } catch (error) {
-    console.error("Error in chat function:", error);
+    console.error("[Chat Function Error]", error);
     return new Response(JSON.stringify({ error: "Internal server error" }), {
       status: 500,
       headers: { "Content-Type": "application/json" },
