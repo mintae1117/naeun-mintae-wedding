@@ -18,3 +18,7 @@
 | **AI ChatBot**    | Groq + Cloudflare Env        |
 
 ---
+
+## 배포 정보
+
+본 사이트는 **Cloudflare Pages**를 통해 자동 배포(CI/CD)됩니다.
