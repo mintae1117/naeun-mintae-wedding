@@ -16,5 +16,3 @@
 | **데이터베이스 (database)** | Cloudflare D1 SQL DB  |
 | **코드 관리**    | Git + GitHub                   |
 | **AI ChatBot**    | Groq + Cloudflare Env        |
-
----
