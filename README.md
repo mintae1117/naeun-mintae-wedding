@@ -14,11 +14,7 @@
 | **배포 (CI/CD)** | Cloudflare Pages  |
 | **저장소 (storage)** | Cloudflare R2  |
 | **데이터베이스 (database)** | Cloudflare D1 SQL DB  |
-| **버전 관리**    | Git + GitHub                   |
+| **코드 관리**    | Git + GitHub                   |
 | **AI ChatBot**    | Groq + Cloudflare Env        |
 
 ---
-
-## 배포 정보
-
-본 사이트는 **Cloudflare Pages**를 통해 자동 배포(CI/CD)됩니다.
