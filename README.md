@@ -14,7 +14,7 @@
 | **배포 (CI/CD)** | Cloudflare Pages  |
 | **저장소 (storage)** | Cloudflare R2  |
 | **데이터베이스 (database)** | Cloudflare D1 SQL DB  |
-| **버전 관리**    | Git + GitHub                   |
+| **코드 관리**    | Git + GitHub                   |
 | **AI ChatBot**    | Groq + Cloudflare Env        |
 
 ---
