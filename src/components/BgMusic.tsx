@@ -42,7 +42,7 @@ export const BgMusic = () => {
   return (
     <div>
       <audio ref={audioRef} loop>
-        <source src="/Howell-Magic.mp3" type="audio/mpeg" />
+        <source src="/ihearSymphony.mp3" type="audio/mpeg" />
       </audio>
 
       <button
