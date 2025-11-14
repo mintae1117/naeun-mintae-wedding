@@ -8,7 +8,7 @@ interface GuestbookProps {
 const API_URL = "/api/guestbook";
 
 export const Guestbook: React.FC<GuestbookProps> = ({ data }) => {
-  const [entries, setEntries] = useState<GuestbookEntry[]>(data.guestbook);
+  const [entries, setEntries] = useState<GuestbookEntry[]>([]);
   const [showForm, setShowForm] = useState(false);
   const [newEntry, setNewEntry] = useState({
     author: "",
