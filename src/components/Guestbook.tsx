@@ -19,6 +19,8 @@ export const Guestbook: React.FC<GuestbookProps> = ({ data }) => {
   const [error, setError] = useState<string | null>(null);
   const [deleteTarget, setDeleteTarget] = useState<string | null>(null);
   const [deletePassword, setDeletePassword] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 5;
 
   // 방명록 데이터 가져오기
   useEffect(() => {
@@ -62,6 +64,7 @@ export const Guestbook: React.FC<GuestbookProps> = ({ data }) => {
       setEntries([savedEntry, ...entries]);
       setNewEntry({ author: "", message: "", password: "" });
       setShowForm(false);
+      setCurrentPage(1); // 새 메시지 등록 시 첫 페이지로 이동
     } catch (err) {
       console.error("Error submitting guestbook entry:", err);
       setError(
@@ -108,6 +111,68 @@ export const Guestbook: React.FC<GuestbookProps> = ({ data }) => {
     } finally {
       setIsLoading(false);
     }
+  };
+
+  // 페이지네이션 계산
+  const totalPages = Math.ceil(entries.length / itemsPerPage);
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentEntries = entries.slice(indexOfFirstItem, indexOfLastItem);
+
+  const handlePageChange = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
+    setDeleteTarget(null);
+    setDeletePassword("");
+    setError(null);
+  };
+
+  // 스마트 페이지네이션 - 표시할 페이지 번호 계산
+  const getPageNumbers = () => {
+    const pages: (number | string)[] = [];
+    const maxVisible = 5; // 최대 표시 개수
+
+    if (totalPages <= maxVisible) {
+      // 페이지가 적으면 모두 표시
+      for (let i = 1; i <= totalPages; i++) {
+        pages.push(i);
+      }
+    } else {
+      // 첫 페이지는 항상 표시
+      pages.push(1);
+
+      // 현재 페이지 기준 앞뒤로 표시할 범위 계산
+      const leftSiblingIndex = Math.max(currentPage - 1, 2);
+      const rightSiblingIndex = Math.min(currentPage + 1, totalPages - 1);
+
+      const showLeftDots = leftSiblingIndex > 2;
+      const showRightDots = rightSiblingIndex < totalPages - 1;
+
+      if (!showLeftDots && showRightDots) {
+        // 왼쪽 생략 없음: 1 2 3 4 5 ... 15
+        for (let i = 2; i <= 4; i++) {
+          pages.push(i);
+        }
+        pages.push("...");
+      } else if (showLeftDots && !showRightDots) {
+        // 오른쪽 생략 없음: 1 ... 11 12 13 14 15
+        pages.push("...");
+        for (let i = totalPages - 3; i <= totalPages - 1; i++) {
+          pages.push(i);
+        }
+      } else {
+        // 양쪽 생략: 1 ... 5 6 7 ... 15
+        pages.push("...");
+        for (let i = leftSiblingIndex; i <= rightSiblingIndex; i++) {
+          pages.push(i);
+        }
+        pages.push("...");
+      }
+
+      // 마지막 페이지는 항상 표시
+      pages.push(totalPages);
+    }
+
+    return pages;
   };
 
   return (
@@ -165,7 +230,7 @@ export const Guestbook: React.FC<GuestbookProps> = ({ data }) => {
         )}
 
         <div className="guestbook-list">
-          {entries.map((entry) => (
+          {currentEntries.map((entry) => (
             <div key={entry.id} className="guestbook-entry">
               <div className="entry-header">
                 <span className="entry-author">{entry.author}</span>
@@ -239,6 +304,50 @@ export const Guestbook: React.FC<GuestbookProps> = ({ data }) => {
             </div>
           ))}
         </div>
+
+        {totalPages > 1 && (
+          <div className="pagination">
+            <button
+              className="pagination-btn"
+              style={{ marginRight: "5px" }}
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={currentPage === 1}
+            >
+              이전
+            </button>
+
+            {getPageNumbers().map((page, index) => {
+              if (typeof page === "string") {
+                // "..." 표시
+                return (
+                  <span key={`dots-${index}`} className="pagination-dots">
+                    {page}
+                  </span>
+                );
+              }
+              return (
+                <button
+                  key={page}
+                  className={`pagination-number ${
+                    currentPage === page ? "active" : ""
+                  }`}
+                  onClick={() => handlePageChange(page)}
+                >
+                  {page}
+                </button>
+              );
+            })}
+
+            <button
+              className="pagination-btn"
+              style={{ marginLeft: "5px" }}
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={currentPage === totalPages}
+            >
+              다음
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

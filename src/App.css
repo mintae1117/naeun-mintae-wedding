@@ -1128,6 +1128,91 @@ section {
   margin-bottom: 8px;
 }
 
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 30px;
+  padding: 20px 0;
+}
+
+.pagination-btn {
+  padding: 10px 20px;
+  background-color: #8b7355;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  min-width: 50px;
+}
+
+.pagination-btn:hover:not(:disabled) {
+  background-color: #6d5a45;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.pagination-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.pagination-btn:disabled {
+  background-color: #ddd;
+  color: #999;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.pagination-number {
+  padding: 10px 16px;
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  min-width: 42px;
+}
+
+.pagination-number:hover {
+  background-color: #f5f5f5;
+  border-color: #8b7355;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.pagination-number.active {
+  background-color: #8b7355;
+  color: white;
+  border-color: #8b7355;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(139, 115, 85, 0.3);
+}
+
+.pagination-number.active:hover {
+  background-color: #6d5a45;
+  border-color: #6d5a45;
+}
+
+.pagination-dots {
+  padding: 10px 8px;
+  color: #999;
+  font-size: 14px;
+  font-weight: 600;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px;
+}
+
 /* Account Section */
 .account-section {
   background: linear-gradient(135deg, #fff4e0 0%, #fdadbc 100%);
@@ -1340,6 +1425,31 @@ section {
   .music-hint p {
     font-size: 12px;
   }
+
+  /* Pagination Responsive - Tablet */
+  .pagination {
+    gap: 6px;
+    padding: 15px 0;
+    margin-top: 25px;
+  }
+
+  .pagination-btn {
+    padding: 8px 16px;
+    font-size: 13px;
+    min-width: 50px;
+  }
+
+  .pagination-number {
+    padding: 8px 12px;
+    font-size: 13px;
+    min-width: 34px;
+  }
+
+  .pagination-dots {
+    padding: 8px 6px;
+    font-size: 13px;
+    min-width: 26px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1464,5 +1574,33 @@ section {
 
   .music-hint p {
     font-size: 11px;
+  }
+
+  /* Pagination Responsive - Mobile */
+  .pagination {
+    gap: 4px;
+    padding: 12px 0;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+
+  .pagination-btn {
+    padding: 8px 10px;
+    font-size: 12px;
+    min-width: 30px;
+    border-radius: 6px;
+  }
+
+  .pagination-number {
+    padding: 8px 10px;
+    font-size: 12px;
+    min-width: 30px;
+    border-radius: 6px;
+  }
+
+  .pagination-dots {
+    padding: 8px 4px;
+    font-size: 12px;
+    min-width: 24px;
   }
 }
