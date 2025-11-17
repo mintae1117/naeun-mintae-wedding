@@ -32,8 +32,9 @@ export interface Venue {
 }
 
 export interface Transportation {
-  type: 'subway' | 'bus' | 'shuttle';
+  type: "subway" | "bus" | "shuttle";
   description: string;
+  text: string;
 }
 
 export interface Parents {

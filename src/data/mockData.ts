@@ -30,25 +30,30 @@ export const mockWeddingData: WeddingData = {
     transportation: [
       {
         type: "subway",
-        description: "2, 5호선 충정로역 4번 출구 도보 3분",
+        description: "2호선, 5호선 충정로역 4번 출구 도보 3분",
+        text: "충정로역 4번 출구 도보 3분",
       },
       {
         type: "subway",
-        description: "1, 4호선 서울역 15번출구(공항철도역) 도보 10분",
+        description: "1호선, 4호선 서울역 15번출구(공항철도역) 도보 10분",
+        text: "서울역 15번출구(공항철도역) 도보 10분",
       },
       {
         type: "bus",
         description:
           "한국경제신문사 하차 - [간선] 370, 603 [지선] 7011, 7013A, 7013B, 7017",
+        text: "한국경제신문사 하차",
       },
       {
         type: "bus",
         description:
           "경찰청·동북아역사재단 하차 - [간선] 103, 150, 701, 704, 708, 709, 742, 750A",
+        text: "경찰청·동북아역사재단 하차",
       },
       {
         type: "bus",
         description: "서울역서부 하차 - [간선] 173, 261, 262, 463, 503, 604",
+        text: "서울역서부 하차",
       },
     ],
     parking: "건물 내 지하 주차장 이용 가능 (2시간 무료)",

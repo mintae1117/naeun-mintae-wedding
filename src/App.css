@@ -837,25 +837,54 @@ section {
 .info-title {
   font-size: 18px;
   font-weight: 600;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   color: #333;
 }
 
 .transport-item {
   display: flex;
   align-items: flex-start;
-  margin-bottom: 15px;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
 .transport-icon {
   font-size: 18px;
-  margin-right: 10px;
+  margin-top: 3px;
+  flex-shrink: 0;
 }
 
 .transport-description {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.transport-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.line-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  white-space: nowrap;
+}
+
+.transport-text {
   font-size: 14px;
-  line-height: 1.6;
+  line-height: 1;
   color: #555;
+  margin: 0;
 }
 
 .parking-info {
@@ -887,7 +916,7 @@ section {
 
 .map-btn {
   padding: 12px 24px;
-  border: none;
+  border: 1px solid #ddd;
   border-radius: 8px;
   cursor: pointer;
   font-size: 15px;
@@ -896,13 +925,15 @@ section {
   display: flex;
   align-items: center;
   gap: 8px;
-  color: white;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  color: #333;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .map-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-color: #bbb;
 }
 
 .map-btn:active {
@@ -910,58 +941,28 @@ section {
 }
 
 .map-btn-icon {
-  font-size: 18px;
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 3px;
 }
 
 /* 네이버 지도 버튼 */
-.map-btn.naver-map {
-  background-color: #03c75a;
-}
-
 .map-btn.naver-map:hover {
-  background-color: #02b350;
+  background-color: #f8f9fa;
 }
 
 /* 카카오맵 버튼 */
-.map-btn.kakao-map {
-  background-color: #fee500;
-  color: #3c1e1e;
-}
-
 .map-btn.kakao-map:hover {
-  background-color: #fdd835;
-}
-
-.kakao-icon {
-  width: 20px;
-  height: 20px;
-  background-color: #3c1e1e;
-  color: #fee500;
-  border-radius: 4px;
-  font-weight: 900;
-  font-size: 14px;
+  background-color: #f8f9fa;
 }
 
 /* 티맵 버튼 */
-.map-btn.tmap {
-  background-color: #ff4f4f;
-}
-
 .map-btn.tmap:hover {
-  background-color: #e64545;
-}
-
-.tmap-icon {
-  width: 20px;
-  height: 20px;
-  background-color: white;
-  color: #ff4f4f;
-  border-radius: 4px;
-  font-weight: 900;
-  font-size: 14px;
+  background-color: #f8f9fa;
 }
 
 /* Information Section */
@@ -1472,12 +1473,26 @@ section {
     height: 50px;
   }
 
-  .map-buttons {
-    flex-direction: column;
+  .map-btn {
+    width: auto;
   }
 
-  .map-btn {
-    width: 100%;
+  .map-btn.naver-map {
+    padding-left: 12px;
+    padding-right: 12px;
+    font-size: 12px;
+  }
+
+  .map-btn.kakao-map {
+    padding-left: 12px;
+    padding-right: 12px;
+    font-size: 12px;
+  }
+
+  .map-btn.tmap {
+    padding-left: 12px;
+    padding-right: 12px;
+    font-size: 12px;
   }
 
   .modal-close {

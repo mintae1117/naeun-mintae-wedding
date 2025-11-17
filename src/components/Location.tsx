@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useRef } from "react";
 import { FaSubway, FaBus, FaShuttleVan } from "react-icons/fa";
-import { SiNaver } from "react-icons/si";
 import type { WeddingData } from "../types";
+import { parseTransportation } from "../utils/transportationParser";
 
 interface LocationProps {
   data: WeddingData;
@@ -113,16 +113,51 @@ export const Location: React.FC<LocationProps> = ({ data }) => {
 
         <div className="transportation-info">
           <h3 className="info-title">교통편 안내</h3>
-          {data.venue.transportation.map((transport, index) => (
-            <div key={index} className="transport-item">
-              <span className="transport-icon">
-                {transport.type === "subway" && <FaSubway />}
-                {transport.type === "bus" && <FaBus />}
-                {transport.type === "shuttle" && <FaShuttleVan />}
-              </span>
-              <p className="transport-description">{transport.description}</p>
-            </div>
-          ))}
+          {data.venue.transportation.map((transport, index) => {
+            const parsed =
+              transport.type !== "shuttle"
+                ? parseTransportation(transport.type, transport.description)
+                : null;
+
+            return (
+              <div key={index} className="transport-item">
+                <span className="transport-icon">
+                  {transport.type === "subway" && <FaSubway />}
+                  {transport.type === "bus" && <FaBus />}
+                  {transport.type === "shuttle" && <FaShuttleVan />}
+                </span>
+                <div className="transport-description">
+                  {parsed?.subwayLines && parsed.subwayLines.length > 0 && (
+                    <div className="transport-badges">
+                      {parsed.subwayLines.map((line, idx) => (
+                        <span
+                          key={idx}
+                          className="line-badge"
+                          style={{ backgroundColor: line.color }}
+                        >
+                          {line.line}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                  {parsed?.busRoutes && parsed.busRoutes.length > 0 && (
+                    <div className="transport-badges">
+                      {parsed.busRoutes.map((route, idx) => (
+                        <span
+                          key={idx}
+                          className="line-badge"
+                          style={{ backgroundColor: route.color }}
+                        >
+                          {route.number}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                  <p className="transport-text">{transport.text}</p>
+                </div>
+              </div>
+            );
+          })}
 
           <div className="parking-info">
             <h4 className="parking-title">주차 안내</h4>
@@ -132,15 +167,19 @@ export const Location: React.FC<LocationProps> = ({ data }) => {
 
         <div className="map-buttons">
           <button className="map-btn naver-map" onClick={handleNaverMap}>
-            <SiNaver className="map-btn-icon" />
+            <img
+              src="/naver-map.png"
+              alt="네이버 지도"
+              className="map-btn-icon"
+            />
             네이버 지도
           </button>
           <button className="map-btn kakao-map" onClick={handleKakaoMap}>
-            <span className="map-btn-icon kakao-icon">K</span>
+            <img src="/kakao-map.png" alt="카카오맵" className="map-btn-icon" />
             카카오맵
           </button>
           <button className="map-btn tmap" onClick={handleTmap}>
-            <span className="map-btn-icon tmap-icon">T</span>
+            <img src="/t-map.png" alt="티맵" className="map-btn-icon" />
             티맵
           </button>
         </div>

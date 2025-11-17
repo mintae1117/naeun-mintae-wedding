@@ -30,8 +30,7 @@ export const Guestbook: React.FC<GuestbookProps> = ({ data }) => {
         if (!response.ok) throw new Error("방명록을 불러올 수 없습니다");
         const data = await response.json();
         setEntries(data);
-      } catch (err) {
-        console.error("Error fetching guestbook:", err);
+      } catch {
         // API 실패 시 mockData 사용
         setEntries(data.guestbook);
       }
