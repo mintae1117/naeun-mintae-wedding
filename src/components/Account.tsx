@@ -59,7 +59,7 @@ export const Account: React.FC<AccountProps> = ({ data }) => {
         <div className="account-notice">
           <p>축하 화환은 정중히 사양하겠습니다.</p>
           <p>좋은 마음만 감사히 받겠습니다.</p>
-          <img src="/no-flowers.png" alt="화환거부" className="account-no-flowers" />
+          {/* <img src="/no-flowers.png" alt="화환거부" className="account-no-flowers" /> */}
         </div>
       </div>
     </section>
