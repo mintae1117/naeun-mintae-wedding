@@ -1309,6 +1309,84 @@ section {
   background-color: #6d5a45;
 }
 
+/* Flower Notice Section */
+.flower-notice-section {
+  padding: 60px 20px;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flower-notice-card {
+  max-width: 600px;
+  width: 100%;
+  padding: 20px 10px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  position: relative;
+  border: 2px solid #fdadbc;
+}
+
+.flower-wreath-container {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.flower-wreath-image {
+  position: absolute;
+  width: 110%;
+  height: 110%;
+  object-fit: contain;
+  opacity: 0.9;
+  /* animation: gentle-rotate 20s linear infinite; */
+}
+
+@keyframes gentle-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.flower-wreath-content {
+  position: relative;
+  z-index: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 90%;
+}
+
+.flower-notice-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #5d4037;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+.flower-notice-text {
+  font-size: 15px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
 .account-notice {
   position: relative;
   display: flex;
@@ -1319,7 +1397,6 @@ section {
   padding: 20px;
   background-color: #f9f9f9;
   border-radius: 10px;
-  margin-top: 20px;
 }
 
 .account-notice p {
@@ -1330,7 +1407,8 @@ section {
 
 /* Footer */
 .footer {
-  padding: 40px 20px;
+  padding: 10px 20px;
+  padding-bottom: 40px;
   text-align: center;
   background-color: #f5f5f5;
   color: #999;
@@ -1470,6 +1548,28 @@ section {
     padding: 8px 6px;
     font-size: 13px;
     min-width: 26px;
+  }
+
+  /* Flower Notice Responsive - Tablet */
+  .flower-notice-section {
+    padding: 50px 15px;
+  }
+
+  .flower-notice-card {
+    padding: 20px 10px;
+    max-width: 500px;
+  }
+
+  .flower-wreath-container {
+    max-width: 450px;
+  }
+
+  .flower-notice-title {
+    font-size: 20px;
+  }
+
+  .flower-notice-text {
+    font-size: 14px;
   }
 }
 
@@ -1629,5 +1729,30 @@ section {
   .account-no-flowers {
     width: 50px;
     height: 50px;
+  }
+
+  /* Flower Notice Responsive - Mobile */
+  .flower-notice-section {
+    padding: 40px 15px;
+  }
+
+  .flower-notice-card {
+    padding: 20px 0;
+    border-radius: 15px;
+    max-width: 100%;
+  }
+
+  .flower-wreath-container {
+    max-width: 420px;
+  }
+
+  .flower-notice-title {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+
+  .flower-notice-text {
+    font-size: 13px;
+    margin-bottom: 8px;
   }
 }
