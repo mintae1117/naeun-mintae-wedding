@@ -366,9 +366,45 @@ section {
   background-color: #f9f9f9;
 }
 
+.interview-toggle-btn {
+  padding: 12px 30px;
+  background-color: #8b7355;
+  color: white;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.interview-toggle-btn:hover {
+  background-color: #6d5a45;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.interview-toggle-btn:active {
+  transform: translateY(0);
+}
+
 .interview-list {
   max-width: 700px;
   margin: 0 auto;
+  animation: fadeIn 0.4s ease-in-out;
+  margin-top: 30px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .interview-item {
@@ -910,7 +946,7 @@ section {
   display: flex;
   gap: 10px;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 40px;
   flex-wrap: wrap;
 }
 
@@ -1043,7 +1079,7 @@ section {
   background-color: #8b7355;
   color: white;
   border: none;
-  border-radius: 25px;
+  border-radius: 7px;
   cursor: pointer;
   font-size: 15px;
   margin-bottom: 30px;
@@ -1254,7 +1290,7 @@ section {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .account-item {
@@ -1321,58 +1357,26 @@ section {
 .flower-notice-card {
   max-width: 600px;
   width: 100%;
-  padding: 20px 10px;
-  background: white;
+  aspect-ratio: 10 / 7;
+  background-image: url("/flower.avif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   border-radius: 20px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  text-align: center;
-  position: relative;
-  border: 2px solid #fdadbc;
-}
-
-.flower-wreath-container {
-  position: relative;
-  width: 100%;
-  max-width: 500px;
-  margin: 0 auto;
-  aspect-ratio: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.flower-wreath-image {
-  position: absolute;
-  width: 110%;
-  height: 110%;
-  object-fit: contain;
-  opacity: 0.9;
-  /* animation: gentle-rotate 20s linear infinite; */
-}
-
-@keyframes gentle-rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.flower-wreath-content {
-  position: relative;
-  z-index: 1;
-  padding: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 90%;
+  text-align: center;
+  padding: 40px;
+  position: relative;
 }
 
 .flower-notice-title {
-  font-size: 22px;
+  position: relative;
+  z-index: 1;
+  font-size: 24px;
   font-weight: 600;
   color: #5d4037;
   margin-bottom: 15px;
@@ -1380,10 +1384,12 @@ section {
 }
 
 .flower-notice-text {
-  font-size: 15px;
+  position: relative;
+  z-index: 1;
+  font-size: 16px;
   color: #666;
-  line-height: 1.6;
-  margin-bottom: 10px;
+  line-height: 1.8;
+  margin-bottom: 8px;
   font-weight: 500;
 }
 
@@ -1556,20 +1562,16 @@ section {
   }
 
   .flower-notice-card {
-    padding: 20px 10px;
     max-width: 500px;
-  }
-
-  .flower-wreath-container {
-    max-width: 450px;
+    padding: 35px;
   }
 
   .flower-notice-title {
-    font-size: 20px;
+    font-size: 22px;
   }
 
   .flower-notice-text {
-    font-size: 14px;
+    font-size: 15px;
   }
 }
 
@@ -1733,17 +1735,13 @@ section {
 
   /* Flower Notice Responsive - Mobile */
   .flower-notice-section {
-    padding: 40px 15px;
+    padding: 40px 10px;
   }
 
   .flower-notice-card {
-    padding: 20px 0;
     border-radius: 15px;
-    max-width: 100%;
-  }
-
-  .flower-wreath-container {
-    max-width: 420px;
+    max-width: 95%;
+    padding: 30px 20px;
   }
 
   .flower-notice-title {
@@ -1752,7 +1750,7 @@ section {
   }
 
   .flower-notice-text {
-    font-size: 13px;
-    margin-bottom: 8px;
+    font-size: 14px;
+    margin-bottom: 6px;
   }
 }
