@@ -1414,8 +1414,7 @@ section {
 
 /* Footer */
 .footer {
-  padding: 10px 20px;
-  padding-bottom: 40px;
+  padding: 10px 20px 60px 20px;
   text-align: center;
   background-color: #f5f5f5;
   color: #999;
