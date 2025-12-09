@@ -54,6 +54,18 @@ const ImageLoader = styled.div`
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
   transform: rotate(-3deg);
   position: relative;
+
+  @media (max-width: 768px) {
+    width: 320px;
+    height: 420px;
+    box-shadow: 0 7px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (max-width: 480px) {
+    width: 280px;
+    height: 380px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+  }
 `;
 
 const HeartLoader = styled.div`
@@ -86,6 +98,18 @@ const StyledMainPhoto = styled.img<{ $isLoaded: boolean }>`
   -ms-user-select: none;
   -webkit-user-drag: none;
   pointer-events: auto;
+
+  @media (max-width: 768px) {
+    width: 320px;
+    height: 420px;
+    box-shadow: 0 7px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (max-width: 480px) {
+    width: 280px;
+    height: 380px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+  }
 `;
 
 export const Hero: React.FC<HeroProps> = ({ data }) => {
