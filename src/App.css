@@ -790,7 +790,7 @@ section {
   background-color: #fff;
   padding: 15px 12px;
   border-radius: 12px;
-  min-width: 60px;
+  min-width: 80px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -1658,7 +1658,7 @@ section {
 
   .countdown-item {
     padding: 12px 8px;
-    min-width: 60px;
+    min-width: 62px;
   }
 
   .countdown-value {
