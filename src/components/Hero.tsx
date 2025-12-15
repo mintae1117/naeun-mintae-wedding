@@ -72,14 +72,6 @@ const HeartLoader = styled.div`
   font-size: 48px;
   color: #fdadbc;
   animation: ${pulse} 1.2s ease-in-out infinite;
-  margin-bottom: 16px;
-`;
-
-const LoadingText = styled.p`
-  font-size: 14px;
-  color: #8b7355;
-  letter-spacing: 2px;
-  font-weight: 300;
 `;
 
 const StyledMainPhoto = styled.img<{ $isLoaded: boolean }>`
@@ -156,7 +148,6 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
               <HeartLoader>
                 <IoHeart />
               </HeartLoader>
-              <LoadingText>사진을 불러오는 중...</LoadingText>
             </ImageLoader>
           )}
 
