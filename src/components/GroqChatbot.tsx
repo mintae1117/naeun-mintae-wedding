@@ -23,7 +23,7 @@ export const GroqChatbot = () => {
 
   const openChatbot = () => {
     setIsOpen(true);
-    // 히스토리에 상태 추가 (뒤로가기 대응)
+    // 히스토리에 상태 추가
     window.history.pushState({ chatbotOpen: true }, "");
   };
 
@@ -38,12 +38,6 @@ export const GroqChatbot = () => {
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
-
-  //   useEffect(() => {
-  //     if (isOpen && inputRef.current) {
-  //       inputRef.current.focus();
-  //     }
-  //   }, [isOpen]);
 
   // 뒤로가기 버튼 처리
   useEffect(() => {
