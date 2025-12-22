@@ -15,7 +15,7 @@
 | **저장소 (storage)** | Cloudflare R2  |
 | **데이터베이스 (database)** | Cloudflare D1 SQL DB  |
 | **코드 관리**    | Git + GitHub                   |
-| **AI ChatBot**    | Groq + Cloudflare Env        |
+| **AI ChatBot**    | Groq + llama-3.3-70b-versatile + Cloudflare Env        |
 
 ---
 
