@@ -15,23 +15,4 @@
 | **저장소 (storage)** | Cloudflare R2  |
 | **데이터베이스 (database)** | Cloudflare D1 SQL DB  |
 | **코드 관리**    | Git + GitHub                   |
-| **AI ChatBot**    | Groq + llama-3.3-70b-versatile + Cloudflare Env        |
-
----
-
-## 프로젝트 구조
-
-```
-mt-naeun-wedding/
-├── public/                 # 정적 파일 (이미지, 음악 등)
-├── src/
-│   ├── components/         # React 컴포넌트
-│   ├── config/             # 설정 (R2 등)
-│   ├── data/               # 결혼식 정보 데이터
-│   ├── types/              # TypeScript 타입 정의
-│   ├── utils/              # 유틸리티 함수
-│   ├── App.tsx             # 메인 앱
-│   └── main.tsx            # 엔트리포인트
-├── functions/api/          # Cloudflare 서버리스 API
-└── wrangler.toml           # Cloudflare 설정
-```
+| **AI ChatBot**    | Groq + llama-3.3 + Cloudflare Env        |
