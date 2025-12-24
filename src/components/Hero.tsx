@@ -12,12 +12,12 @@ interface HeroProps {
 // 예쁜 로더 애니메이션
 const pulse = keyframes`
   0%, 100% {
-    transform: scale(1);
-    opacity: 1;
+    transform: scale(0.8);
+    opacity: 0.7;
   }
   50% {
-    transform: scale(1.1);
-    opacity: 0.7;
+    transform: scale(1.2);
+    opacity: 1;
   }
 `;
 
@@ -141,7 +141,9 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
 
       <div className="hero-content">
         <div className="main-photo-placeholder">
-          <img src="/tape01.png" alt="테이프" className="photo-tape" />
+          {isImageLoaded && (
+            <img src="/tape01.png" alt="테이프" className="photo-tape" />
+          )}
 
           {!isImageLoaded && (
             <ImageLoader>
