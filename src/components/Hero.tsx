@@ -9,24 +9,12 @@ interface HeroProps {
   data: WeddingData;
 }
 
-// 예쁜 로더 애니메이션
-const pulse = keyframes`
-  0%, 100% {
-    transform: scale(0.8);
-    opacity: 0.7;
-  }
-  50% {
-    transform: scale(1.2);
-    opacity: 1;
-  }
-`;
-
-const shimmer = keyframes`
+const spin = keyframes`
   0% {
-    background-position: -200% 0;
+    transform: rotate(0deg);
   }
   100% {
-    background-position: 200% 0;
+    transform: rotate(360deg);
   }
 `;
 
@@ -41,19 +29,15 @@ const fadeIn = keyframes`
   }
 `;
 
-const ImageLoader = styled.div`
+const PreloaderWrapper = styled.div`
   width: 360px;
   height: 480px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(90deg, #f8f4f0 25%, #fff5f5 50%, #f8f4f0 75%);
-  background-size: 200% 100%;
-  animation: ${shimmer} 1.5s ease-in-out infinite;
+  background-color: #f8f8f8;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
   transform: rotate(-3deg);
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   @media (max-width: 768px) {
     width: 320px;
@@ -68,10 +52,13 @@ const ImageLoader = styled.div`
   }
 `;
 
-const HeartLoader = styled.div`
-  font-size: 48px;
-  color: #fdadbc;
-  animation: ${pulse} 1.2s ease-in-out infinite;
+const Spinner = styled.div`
+  width: 40px;
+  height: 40px;
+  border: 3px solid #f0f0f0;
+  border-top: 3px solid #fdadbc;
+  border-radius: 50%;
+  animation: ${spin} 1s linear infinite;
 `;
 
 const StyledMainPhoto = styled.img<{ $isLoaded: boolean }>`
@@ -146,11 +133,9 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
           )}
 
           {!isImageLoaded && (
-            <ImageLoader>
-              <HeartLoader>
-                <IoHeart />
-              </HeartLoader>
-            </ImageLoader>
+            <PreloaderWrapper>
+              <Spinner />
+            </PreloaderWrapper>
           )}
 
           <StyledMainPhoto
