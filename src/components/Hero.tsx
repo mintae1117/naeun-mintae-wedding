@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import type { WeddingData } from "../types";
 import { IoHeart } from "react-icons/io5";
 import { getMainHeroImageUrl } from "../config/r2";
@@ -93,23 +93,7 @@ const StyledMainPhoto = styled.img<{ $isLoaded: boolean }>`
 
 export const Hero: React.FC<HeroProps> = ({ data }) => {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
-  const [imageUrl, setImageUrl] = useState<string>("");
-
-  useEffect(() => {
-    // 이미지 프리로딩
-    const url = getMainHeroImageUrl();
-    setImageUrl(url);
-
-    const img = new Image();
-    img.src = url;
-    img.onload = () => {
-      setIsImageLoaded(true);
-    };
-    img.onerror = () => {
-      // 에러가 나도 일단 표시 시도
-      setIsImageLoaded(true);
-    };
-  }, []);
+  const imageUrl = getMainHeroImageUrl();
 
   const snowflake2 = document.createElement("img");
   snowflake2.src = "/snowflake02.png";
@@ -142,7 +126,9 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
             src={imageUrl}
             alt="웨딩 메인 사진"
             $isLoaded={isImageLoaded}
+            fetchPriority="high"
             onLoad={() => setIsImageLoaded(true)}
+            onError={() => setIsImageLoaded(true)}
           />
         </div>
 
