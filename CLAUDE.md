@@ -66,17 +66,3 @@ GROQ_API_KEY=<Groq API 키>
 ```
 
 ---
-
-## R2 스토리지 설정
-
-```typescript
-// src/config/r2Config.ts
-export const R2_BASE_URL = 'https://pub-aff195e758a643619b9135886dc7b279.r2.dev';
-export const R2_FOLDER = 'my_wedding';
-
-// 이미지 URL 생성
-export const getImageUrl = (filename: string) =>
-  `${R2_BASE_URL}/${R2_FOLDER}/${filename}`;
-```
-
----
