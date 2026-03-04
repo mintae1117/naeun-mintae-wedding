@@ -13,7 +13,6 @@ import { mockWeddingData } from "./data/mockData";
 import "./App.css";
 import { BgMusic } from "./components/BgMusic";
 import { FlowerInfo } from "./components/FlowerInfo";
-// import WeddingQRCode from "./components/QRCode";
 
 function App() {
   return (
@@ -56,8 +55,6 @@ function App() {
       <ScrollReveal direction="fade" delay={0.15}>
         <Account data={mockWeddingData} />
       </ScrollReveal>
-
-      {/* <WeddingQRCode /> */}
 
       <ScrollReveal direction="fade" delay={0.15}>
         <FlowerInfo />
