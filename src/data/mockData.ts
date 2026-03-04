@@ -91,7 +91,7 @@ export const mockWeddingData: WeddingData = {
   guestbook: [
     {
       id: "1",
-      author: "김민수 ( 이것은 예시 데이터 입니다. )",
+      author: "김민수 ( 예시 데이터 )",
       message: "결혼 진심으로 축하해! 행복하게 잘 살아~",
       date: "2025-10-20",
     },
