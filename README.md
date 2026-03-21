@@ -1,6 +1,5 @@
 # 나은 & 민태의 청첩장 웹사이트
 
-그거 돈 주고 할 바에 내가 직접 만드는 나만의 청첩장<br/>
 방문하기 : [링크](https://naeun-mintae-wedding.pages.dev/)
 
 ---
