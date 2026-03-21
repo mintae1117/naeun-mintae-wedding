@@ -8,7 +8,7 @@
 
 | 분야             | 사용 기술                      |
 | ---------------- | ------------------------------ |
-| **Front**     | React, TypeScript, Vite        |
+| **FrontEnd**     | React, TypeScript, Vite        |
 | **Styling**      | CSS, Framer-Motion         |
 | **배포 (CI/CD)** | Cloudflare Pages  |
 | **저장소 (storage)** | Cloudflare R2  |
