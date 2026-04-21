@@ -91,6 +91,40 @@ const StyledMainPhoto = styled.img<{ $isLoaded: boolean }>`
   }
 `;
 
+const FONT_SERIF_KO = `'Gowun Dodum', 'Gaegu', sans-serif`;
+const FONT_SERIF_EN = `'Quicksand', 'Nunito', sans-serif`;
+
+const DateRow = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 10px;
+`;
+
+const DateDash = styled.span`
+  display: inline-block;
+  width: 18px;
+  height: 1px;
+  background-color: rgba(139, 115, 85, 0.55);
+`;
+
+const DateEn = styled.span`
+  font-family: ${FONT_SERIF_EN};
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  color: #2a2620;
+`;
+
+const DateKo = styled.p`
+  font-family: ${FONT_SERIF_KO};
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: #6d4c41;
+  margin-bottom: 20px;
+`;
+
 export const Hero: React.FC<HeroProps> = ({ data }) => {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
   const imageUrl = getMainHeroImageUrl();
@@ -99,6 +133,11 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
   snowflake2.src = "/snowflake02.png";
 
   const images = [snowflake2];
+
+  const dateOnly = data.weddingDate.split(" ")[0];
+  const [year, month, day] = dateOnly.split(".");
+  const dateEn = `${year} . ${month} . ${day}`;
+  const dateKo = `${year}년 ${Number(month)}월 ${Number(day)}일`;
 
   return (
     <section className="hero-section">
@@ -146,10 +185,15 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
           <span className="bride-name">{data.bride.name}</span>
         </div>
 
-        <div className="wedding-date">
-          <p className="date">{data.weddingDate}</p>
-          <p className="time">{data.weddingTime}</p>
-        </div>
+        <DateRow>
+          <DateDash />
+          <DateEn>{dateEn}</DateEn>
+          <DateDash />
+        </DateRow>
+
+        <DateKo>
+          {dateKo} · {data.weddingTime}
+        </DateKo>
       </div>
     </section>
   );
