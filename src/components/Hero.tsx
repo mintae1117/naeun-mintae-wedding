@@ -99,21 +99,14 @@ const DateRow = styled.div`
   align-items: center;
   justify-content: center;
   gap: 18px;
-  margin-bottom: 10px;
-`;
-
-const DateDash = styled.span`
-  display: inline-block;
-  width: 18px;
-  height: 1px;
-  background-color: rgba(139, 115, 85, 0.55);
+  margin-bottom: 5px;
 `;
 
 const DateEn = styled.span`
   font-family: ${FONT_SERIF_EN};
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 500;
-  letter-spacing: 4px;
+  letter-spacing: 3px;
   color: #2a2620;
 `;
 
@@ -186,9 +179,7 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
         </div>
 
         <DateRow>
-          <DateDash />
           <DateEn>{dateEn}</DateEn>
-          <DateDash />
         </DateRow>
 
         <DateKo>
