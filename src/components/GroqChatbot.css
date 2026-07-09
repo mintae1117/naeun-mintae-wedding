@@ -161,6 +161,23 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
+/* QR 이미지 (탭하면 새 탭에서 크게 보기) */
+.chatbot-qr-link {
+  display: block;
+  margin-top: 8px;
+  width: fit-content;
+}
+
+.chatbot-qr-image {
+  display: block;
+  width: 160px;
+  max-width: 100%;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: white;
+  padding: 8px;
+}
+
 /* Loading Animation */
 .chatbot-message-loading {
   display: flex;

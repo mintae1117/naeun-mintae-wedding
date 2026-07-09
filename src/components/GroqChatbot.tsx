@@ -7,6 +7,23 @@ interface Message {
   content: string;
 }
 
+const QR_IMAGE_URL =
+  "https://naeun-mintae-wedding.pages.dev/mt-naeun-wedding-qr.png";
+const QR_IMAGE_FILENAME = "mt-naeun-wedding-qr.png";
+
+// 어시스턴트 응답에 QR 이미지 URL이 포함되어 있으면
+// URL 텍스트(마크다운 링크 포함)를 제거하고 이미지 표시 여부를 반환
+const parseQrMessage = (content: string) => {
+  if (!content.includes(QR_IMAGE_FILENAME)) {
+    return { text: content, showQr: false };
+  }
+  const text = content
+    .replace(/!?\[[^\]]*\]\([^)]*mt-naeun-wedding-qr\.png[^)]*\)/g, "")
+    .replace(/https?:\/\/\S*mt-naeun-wedding-qr\.png\S*/g, "")
+    .trim();
+  return { text, showQr: true };
+};
+
 export const GroqChatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
@@ -144,18 +161,39 @@ export const GroqChatbot = () => {
 
           {/* Messages */}
           <div className="chatbot-messages">
-            {messages.map((message, index) => (
-              <div
-                key={index}
-                className={`chatbot-message ${
-                  message.role === "user"
-                    ? "chatbot-message-user"
-                    : "chatbot-message-assistant"
-                }`}
-              >
-                {message.content}
-              </div>
-            ))}
+            {messages.map((message, index) => {
+              const { text, showQr } =
+                message.role === "assistant"
+                  ? parseQrMessage(message.content)
+                  : { text: message.content, showQr: false };
+              return (
+                <div
+                  key={index}
+                  className={`chatbot-message ${
+                    message.role === "user"
+                      ? "chatbot-message-user"
+                      : "chatbot-message-assistant"
+                  }`}
+                >
+                  {text}
+                  {showQr && (
+                    <a
+                      href={QR_IMAGE_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="chatbot-qr-link"
+                      aria-label="청첩장 QR코드 크게 보기"
+                    >
+                      <img
+                        src={QR_IMAGE_URL}
+                        alt="모바일 청첩장 QR코드"
+                        className="chatbot-qr-image"
+                      />
+                    </a>
+                  )}
+                </div>
+              );
+            })}
             {isLoading && (
               <div className="chatbot-message chatbot-message-assistant chatbot-message-loading">
                 <span className="chatbot-loading-dot">.</span>
