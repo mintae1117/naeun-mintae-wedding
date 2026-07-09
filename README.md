@@ -15,3 +15,5 @@
 | **데이터베이스 (database)** | Cloudflare D1 SQL DB  |
 | **코드 관리**    | Git + GitHub                   |
 | **AI ChatBot**    | Groq + llama-3.3 + Cloudflare Env        |
+
+Ai, db, 목데이터 에 내용 (계좌 및 결혼식 정보) 나중에 최종 배포 전에 업데이트 해야함.
