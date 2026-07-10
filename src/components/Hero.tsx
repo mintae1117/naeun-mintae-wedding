@@ -91,8 +91,8 @@ const StyledMainPhoto = styled.img<{ $isLoaded: boolean }>`
   }
 `;
 
-const FONT_SERIF_KO = `'Gowun Dodum', 'Gaegu', sans-serif`;
-const FONT_SERIF_EN = `'Quicksand', 'Nunito', sans-serif`;
+const FONT_SERIF_KO = `'Gowun Batang', 'Gowun Dodum', 'Gaegu', serif`;
+const FONT_SERIF_EN = `'Gowun Batang', 'Quicksand', 'Nunito', serif`;
 
 /* ── 손글씨 애니메이션: 이미지 마스크 리빌 ──
    부드러운 그라데이션 마스크가 왼쪽→오른쪽으로 지나가며
