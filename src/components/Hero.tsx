@@ -94,8 +94,7 @@ const StyledMainPhoto = styled.img<{ $isLoaded: boolean }>`
 const FONT_SERIF_KO = `'Gowun Dodum', 'Gaegu', sans-serif`;
 const FONT_SERIF_EN = `'Quicksand', 'Nunito', sans-serif`;
 
-/* ── 손글씨 애니메이션 버전 A: 이미지 마스크 리빌 ──
-   PNG는 획 정보가 없어 실제 획 단위 분해는 불가하므로,
+/* ── 손글씨 애니메이션: 이미지 마스크 리빌 ──
    부드러운 그라데이션 마스크가 왼쪽→오른쪽으로 지나가며
    펜으로 써 내려가는 듯한 효과를 낸다 */
 const maskReveal = keyframes`
@@ -140,69 +139,6 @@ const AnimatedTitleImg = styled.img`
     mask-image: none;
   }
 `;
-
-/* ── 손글씨 애니메이션 버전 B: SVG 텍스트 획 드로잉 ──
-   글자 외곽선(stroke)이 그려진 뒤 색이 채워지는 방식.
-   글자별 animation-delay로 왼쪽부터 순서대로 써진다 */
-const drawLetter = keyframes`
-  0% {
-    stroke-dashoffset: 360;
-    fill-opacity: 0;
-  }
-  70% {
-    stroke-dashoffset: 0;
-    fill-opacity: 0;
-  }
-  100% {
-    stroke-dashoffset: 0;
-    fill-opacity: 1;
-  }
-`;
-
-const HandwritingSvg = styled.svg`
-  width: 100%;
-  max-width: 400px;
-  margin: 4px auto 0;
-  display: block;
-  overflow: visible;
-
-  text {
-    font-family: 'Caveat', cursive;
-    font-size: 52px;
-    font-weight: 600;
-  }
-
-  tspan {
-    fill: #d05a86;
-    fill-opacity: 0;
-    stroke: #d05a86;
-    stroke-width: 1;
-    stroke-dasharray: 360;
-    stroke-dashoffset: 360;
-    animation: ${drawLetter} 1s ease forwards;
-  }
-
-  @media (max-width: 768px) {
-    max-width: 350px;
-  }
-
-  @media (max-width: 480px) {
-    max-width: 300px;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    tspan {
-      animation: none;
-      stroke-dashoffset: 0;
-      fill-opacity: 1;
-    }
-  }
-`;
-
-const HANDWRITING_TEXT = "We are getting married ♡";
-
-/* 글자별 시작 딜레이(초): 기본 0.5초 대기 후 한 글자씩 이어서 */
-const letterDelay = (index: number) => `${0.5 + index * 0.09}s`;
 
 const DateRow = styled.div`
   display: flex;
@@ -274,21 +210,9 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
           />
         </div>
 
-        {/* 버전 A: 기존 이미지 + 마스크 리빌 애니메이션 */}
         <div className="hero-title-image">
           <AnimatedTitleImg src="/wemarry02.png" alt="결혼합니다" />
         </div>
-
-        {/* 버전 B: SVG 텍스트 획 드로잉 애니메이션 (비교용 테스트) */}
-        <HandwritingSvg viewBox="0 0 440 80" aria-hidden="true">
-          <text x="220" y="54" textAnchor="middle">
-            {HANDWRITING_TEXT.split("").map((char, i) => (
-              <tspan key={i} style={{ animationDelay: letterDelay(i) }}>
-                {char === " " ? " " : char}
-              </tspan>
-            ))}
-          </text>
-        </HandwritingSvg>
 
         <div className="couple-names">
           <span className="groom-name">{data.groom.name}</span>
