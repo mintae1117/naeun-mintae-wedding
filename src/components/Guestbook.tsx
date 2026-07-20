@@ -198,6 +198,7 @@ export const Guestbook: React.FC<GuestbookProps> = ({ data }) => {
               onChange={(e) =>
                 setNewEntry({ ...newEntry, author: e.target.value })
               }
+              maxLength={20}
               required
               disabled={isLoading}
             />
@@ -209,16 +210,18 @@ export const Guestbook: React.FC<GuestbookProps> = ({ data }) => {
               onChange={(e) =>
                 setNewEntry({ ...newEntry, password: e.target.value })
               }
+              maxLength={30}
               required
               disabled={isLoading}
             />
             <textarea
-              placeholder="축하 메시지를 입력해주세요"
+              placeholder="축하 메시지를 입력해주세요 (최대 500자)"
               className="form-textarea"
               value={newEntry.message}
               onChange={(e) =>
                 setNewEntry({ ...newEntry, message: e.target.value })
               }
+              maxLength={500}
               required
               disabled={isLoading}
             />
@@ -269,6 +272,7 @@ export const Guestbook: React.FC<GuestbookProps> = ({ data }) => {
                     className="form-input"
                     value={deletePassword}
                     onChange={(e) => setDeletePassword(e.target.value)}
+                    maxLength={30}
                     disabled={isLoading}
                     style={{ flex: 1 }}
                   />

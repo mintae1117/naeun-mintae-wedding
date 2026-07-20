@@ -56,6 +56,21 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
       );
     }
 
+    // 글자수 제한 (프론트 maxLength와 동일 기준, 우회 방지)
+    if (
+      body.author.length > 20 ||
+      body.password.length > 30 ||
+      body.message.length > 500
+    ) {
+      return new Response(
+        JSON.stringify({ error: "입력 길이 제한을 초과했습니다" }),
+        {
+          status: 400,
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+    }
+
     const id = crypto.randomUUID();
     const date = new Date().toISOString().split("T")[0];
 
