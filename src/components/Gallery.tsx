@@ -140,7 +140,7 @@ export const Gallery: React.FC<GalleryProps> = ({ data }) => {
             }}
           >
             <div className="loading-spinner" />
-            <span style={{ color: "#8b7355", fontSize: "14px" }}>
+            <span style={{ color: "#064e3b", fontSize: "14px" }}>
               사진을 불러오는 중...
             </span>
           </div>
