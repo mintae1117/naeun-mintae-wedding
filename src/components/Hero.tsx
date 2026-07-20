@@ -32,7 +32,7 @@ const fadeIn = keyframes`
 const PreloaderWrapper = styled.div`
   width: 360px;
   height: 480px;
-  background-color: #f8f3e5;
+  background-color: #f8f8f8;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
   transform: rotate(-3deg);
   display: flex;
@@ -55,8 +55,8 @@ const PreloaderWrapper = styled.div`
 const Spinner = styled.div`
   width: 40px;
   height: 40px;
-  border: 3px solid #f0e9d3;
-  border-top: 3px solid #064e3b;
+  border: 3px solid #f0f0f0;
+  border-top: 3px solid #fdadbc;
   border-radius: 50%;
   animation: ${spin} 1s linear infinite;
 `;
@@ -115,10 +115,6 @@ const AnimatedTitleImg = styled.img`
   object-fit: fill;
   transform: scaleX(1.2);
 
-  /* 핑크 손글씨 PNG를 에메랄드 잉크(#064e3b) 톤으로 재염색 */
-  filter: brightness(0) saturate(100%) invert(21%) sepia(93%)
-    saturate(800%) hue-rotate(126deg) brightness(0.92) contrast(0.9);
-
   -webkit-mask-image: linear-gradient(to right, #000 45%, transparent 55%);
   mask-image: linear-gradient(to right, #000 45%, transparent 55%);
   -webkit-mask-size: 220% 100%;
@@ -157,14 +153,14 @@ const DateEn = styled.span`
   font-size: 22px;
   font-weight: 500;
   letter-spacing: 3px;
-  color: #064e3b;
+  color: #2a2620;
 `;
 
 const DateKo = styled.p`
   font-family: ${FONT_SERIF_KO};
   font-size: 13px;
   letter-spacing: 2px;
-  color: #2e6b58;
+  color: #6d4c41;
   margin-bottom: 20px;
 `;
 
@@ -184,14 +180,10 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
 
   return (
     <section className="hero-section">
-      {/* 눈꽃 PNG(핑크)를 샴페인 골드 톤으로 보정하기 위해 캔버스에 sepia 필터 적용 */}
       <Snowfall
         snowflakeCount={20}
-        color="#f8e7c9"
-        style={{
-          zIndex: "101",
-          filter: "sepia(0.9) saturate(0.7) brightness(1.05)",
-        }}
+        color="#fdadbc"
+        style={{ zIndex: "101" }}
         radius={[10.0, 15.0]}
         images={images}
       />

@@ -1,19 +1,3 @@
-/* 테마 토큰: Emerald Ink × Champagne */
-:root {
-  --emerald: #064e3b; /* 주조색 (emerald ink) */
-  --emerald-deep: #043726; /* hover 등 어두운 변형 */
-  --emerald-soft: #2e6b58; /* 보조 텍스트용 연한 에메랄드 */
-  --champagne: #f8e7c9; /* 액센트 배경 (champagne) */
-  --champagne-mist: #faf3e3; /* 섹션/카드 연한 샴페인 틴트 */
-  --gold: #b8934a; /* 샴페인 딥 골드 (소형 액센트) */
-  --line: #e7ddc4; /* 테두리 */
-  --line-soft: #f0e9d3; /* 옅은 구분선 */
-  --text-ink: #2e3a32; /* 본문 잉크 */
-  --text-mid: #5a675e;
-  --text-soft: #6b776d;
-  --text-faint: #9c947f;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -27,8 +11,8 @@ body {
     "Droid Sans", "Helvetica Neue", serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--champagne-mist);
-  color: var(--text-ink);
+  background-color: #fafafa;
+  color: #333;
 }
 
 .app {
@@ -48,12 +32,12 @@ section {
   font-weight: 600;
   margin-bottom: 10px;
   letter-spacing: 2px;
-  color: var(--emerald);
+  color: #8b7355;
 }
 
 .section-subtitle {
   font-size: 16px;
-  color: var(--text-soft);
+  color: #666;
   margin-bottom: 20px;
 }
 
@@ -76,7 +60,7 @@ section {
   font-size: 36px;
   font-weight: 300;
   margin-bottom: 30px;
-  color: var(--emerald);
+  color: #5d4037;
 }
 
 .hero-title-image {
@@ -96,12 +80,12 @@ section {
 .couple-names {
   font-size: 28px;
   margin-bottom: 20px;
-  color: var(--emerald);
+  color: #4a4a4a;
   vertical-align: middle;
 }
 
 .heart-icon {
-  color: var(--gold);
+  color: #fdadbc;
   font-size: 24px;
   margin: 0 10px;
   vertical-align: middle;
@@ -109,7 +93,7 @@ section {
 
 .wedding-date {
   margin-bottom: 40px;
-  color: var(--emerald);
+  color: #5d4037;
 }
 
 .date {
@@ -119,7 +103,7 @@ section {
 
 .time {
   font-size: 18px;
-  color: var(--emerald-soft);
+  color: #6d4c41;
 }
 
 .main-photo-placeholder {
@@ -187,8 +171,8 @@ section {
 .photo-box {
   width: 300px;
   height: 400px;
-  background-color: var(--champagne-mist);
-  border: 2px dashed var(--line);
+  background-color: #f5f5f5;
+  border: 2px dashed #ccc;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -197,7 +181,7 @@ section {
 }
 
 .placeholder-text {
-  color: var(--text-faint);
+  color: #999;
   font-size: 14px;
 }
 
@@ -209,7 +193,7 @@ section {
   width: 45px;
   height: 45px;
   background-color: rgba(255, 255, 255, 0.95);
-  border: 2px solid var(--emerald);
+  border: 2px solid #8b7355;
   border-radius: 50%;
   cursor: pointer;
   z-index: 999;
@@ -237,23 +221,23 @@ section {
 
 .music-icon {
   font-size: 24px;
-  color: var(--emerald);
+  color: #8b7355;
   transition: color 0.3s;
 }
 
 .music-control-fixed.playing .music-icon {
-  color: var(--gold);
+  color: #ff6b6b;
   animation: pulse 1.5s infinite;
 }
 
 .music-control-fixed.playing {
-  border: 2px solid var(--gold);
+  border: 2px solid #ff6b6b;
 }
 
 .music-off-icon {
   position: absolute;
   font-size: 36px;
-  color: var(--emerald);
+  color: #8b7355;
 }
 
 /* Pulse animation for playing state */
@@ -271,10 +255,10 @@ section {
 @keyframes pulse-ring {
   0%,
   100% {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 0 0 0 rgba(6, 78, 59, 0.6);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 0 0 0 rgba(139, 115, 85, 0.7);
   }
   50% {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 0 0 10px rgba(6, 78, 59, 0);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 0 0 10px rgba(139, 115, 85, 0);
   }
 }
 
@@ -294,7 +278,7 @@ section {
 .music-hint p {
   margin: 0;
   font-size: 13px;
-  color: var(--emerald);
+  color: #8b7355;
   font-weight: 500;
 }
 
@@ -310,7 +294,7 @@ section {
 
 /* Invitation Section */
 .invitation-section {
-  background: linear-gradient(135deg, #fdf8ea 0%, #f1d5a5 100%);
+  background: linear-gradient(135deg, #fff4e0 0%, #fdadbc 100%);
 }
 
 .invitation-content {
@@ -325,7 +309,7 @@ section {
 .invitation-message {
   line-height: 1.8;
   font-size: 15px;
-  color: var(--text-mid);
+  color: #555;
 }
 
 .parents-info {
@@ -335,13 +319,13 @@ section {
 .parent-row {
   margin-bottom: 40px;
   padding: 30px;
-  background-color: #fff;
+  background-color: #fafafa;
   border-radius: 10px;
 }
 
 .parent-label {
   font-size: 14px;
-  color: var(--emerald);
+  color: #8b7355;
   margin-bottom: 10px;
 }
 
@@ -352,7 +336,7 @@ section {
 
 .parent-relation {
   font-size: 14px;
-  color: var(--text-soft);
+  color: #666;
   margin-bottom: 5px;
 }
 
@@ -360,12 +344,12 @@ section {
   font-size: 20px;
   font-weight: 600;
   margin: 15px 0;
-  color: var(--text-ink);
+  color: #333;
 }
 
 .contact-btn {
   padding: 8px 20px;
-  background-color: var(--emerald);
+  background-color: #8b7355;
   color: white;
   border: none;
   border-radius: 20px;
@@ -376,17 +360,17 @@ section {
 }
 
 .contact-btn:hover {
-  background-color: var(--emerald-deep);
+  background-color: #6d5a45;
 }
 
 /* Interview Section */
 .interview-section {
-  background-color: var(--champagne-mist);
+  background-color: #f9f9f9;
 }
 
 .interview-toggle-btn {
   padding: 12px 30px;
-  background-color: var(--emerald);
+  background-color: #8b7355;
   color: white;
   border: none;
   border-radius: 7px;
@@ -399,7 +383,7 @@ section {
 }
 
 .interview-toggle-btn:hover {
-  background-color: var(--emerald-deep);
+  background-color: #6d5a45;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
@@ -434,7 +418,7 @@ section {
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 20px;
-  color: var(--text-ink);
+  color: #333;
   text-align: center;
 }
 
@@ -461,19 +445,19 @@ section {
 }
 
 .groom-answer .answer-label {
-  background-color: #e1efe8;
-  color: var(--emerald);
+  background-color: #e3f2fd;
+  color: #1976d2;
 }
 
 .bride-answer .answer-label {
-  background-color: var(--champagne);
-  color: #8f6b2a;
+  background-color: #fce4ec;
+  color: #c2185b;
 }
 
 .answer-text {
   font-size: 15px;
   line-height: 1.6;
-  color: var(--text-mid);
+  color: #555;
 }
 
 /* Gallery Section */
@@ -538,8 +522,8 @@ section {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--champagne-mist);
-  border: 2px dashed var(--line);
+  background-color: #f5f5f5;
+  border: 2px dashed #ddd;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -618,7 +602,7 @@ section {
   height: 100%;
   max-width: 100%;
   max-height: 100%;
-  background-color: var(--champagne-mist);
+  background-color: #f5f5f5;
   border: none;
   display: flex;
   justify-content: center;
@@ -675,7 +659,7 @@ section {
 
 /* Wedding Date Section */
 .wedding-date-section {
-  background: linear-gradient(135deg, #fdf8ea 0%, #f1d5a5 100%);
+  background: linear-gradient(135deg, #fff4e0 0%, #fdadbc 100%);
   padding: 80px 20px;
 }
 
@@ -695,13 +679,13 @@ section {
 .date-text {
   font-size: 28px;
   font-weight: 600;
-  color: var(--emerald);
+  color: #5d4037;
   margin-bottom: 10px;
 }
 
 .time-text {
   font-size: 18px;
-  color: var(--emerald-soft);
+  color: #6d4c41;
 }
 
 /* Calendar */
@@ -719,13 +703,13 @@ section {
   text-align: center;
   margin-bottom: 20px;
   padding-bottom: 15px;
-  border-bottom: 2px solid var(--line-soft);
+  border-bottom: 2px solid #f0f0f0;
 }
 
 .calendar-header h3 {
   font-size: 22px;
   font-weight: 600;
-  color: var(--emerald);
+  color: #5d4037;
 }
 
 .calendar-days {
@@ -739,12 +723,12 @@ section {
   text-align: center;
   font-size: 11px;
   font-weight: 600;
-  color: var(--text-faint);
+  color: #999;
   padding: 8px 0;
 }
 
 .calendar-day-label.weekend {
-  color: var(--gold);
+  color: #ff6b6b;
 }
 
 .calendar-grid {
@@ -759,7 +743,7 @@ section {
   align-items: center;
   justify-content: center;
   font-size: 14px;
-  color: var(--text-ink);
+  color: #333;
   border-radius: 8px;
   transition: all 0.3s;
 }
@@ -769,15 +753,15 @@ section {
 }
 
 .calendar-date.weekend {
-  color: var(--gold);
+  color: #ff6b6b;
 }
 
 .calendar-date.wedding-day {
-  background: linear-gradient(135deg, #064e3b 0%, #157a5c 100%);
+  background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%);
   color: white;
   font-weight: 700;
   font-size: 16px;
-  box-shadow: 0 4px 12px rgba(6, 78, 59, 0.45);
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.6);
   transform: scale(1.1);
 }
 
@@ -788,7 +772,7 @@ section {
 
 .countdown-label {
   font-size: 18px;
-  color: var(--emerald-soft);
+  color: #6d4c41;
   margin-bottom: 20px;
   font-weight: 700;
 }
@@ -814,14 +798,14 @@ section {
 .countdown-value {
   font-size: 28px;
   font-weight: 700;
-  color: var(--emerald);
+  color: #ff6b6b;
   line-height: 1;
   margin-bottom: 5px;
 }
 
 .countdown-unit {
   font-size: 10px;
-  color: var(--text-faint);
+  color: #999;
   font-weight: 600;
   letter-spacing: 0.5px;
 }
@@ -829,13 +813,13 @@ section {
 .countdown-divider {
   font-size: 24px;
   font-weight: 700;
-  color: var(--gold);
+  color: #fff;
   padding: 0 4px;
 }
 
 /* Location Section */
 .location-section {
-  background-color: var(--champagne-mist);
+  background-color: #f9f9f9;
 }
 
 .location-content {
@@ -851,14 +835,14 @@ section {
   font-size: 22px;
   font-weight: 600;
   margin-bottom: 10px;
-  color: var(--text-ink);
+  color: #333;
 }
 
 .venue-address,
 .venue-detail,
 .venue-phone {
   font-size: 15px;
-  color: var(--text-soft);
+  color: #666;
   margin: 5px 0;
 }
 
@@ -871,8 +855,8 @@ section {
 .map-box {
   width: 100%;
   height: 300px;
-  background-color: var(--champagne-mist);
-  border: 2px dashed var(--line);
+  background-color: #f5f5f5;
+  border: 2px dashed #ddd;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -892,7 +876,7 @@ section {
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 20px;
-  color: var(--text-ink);
+  color: #333;
 }
 
 .transport-item {
@@ -937,26 +921,26 @@ section {
 .transport-text {
   font-size: 14px;
   line-height: 1;
-  color: var(--text-mid);
+  color: #555;
   margin: 0;
 }
 
 .parking-info {
   margin-top: 20px;
   padding-top: 20px;
-  border-top: 1px solid var(--line-soft);
+  border-top: 1px solid #eee;
 }
 
 .parking-title {
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 10px;
-  color: var(--text-ink);
+  color: #333;
 }
 
 .parking-description {
   font-size: 14px;
-  color: var(--text-mid);
+  color: #555;
   line-height: 1.6;
 }
 
@@ -971,7 +955,7 @@ section {
 .map-btn {
   padding: 12px 16px;
   min-width: 140px;
-  border: 1px solid var(--line);
+  border: 1px solid #ddd;
   border-radius: 8px;
   cursor: pointer;
   font-size: 15px;
@@ -981,7 +965,7 @@ section {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  color: var(--text-ink);
+  color: #333;
   background-color: #fff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
@@ -1047,7 +1031,7 @@ section {
   width: 100%;
   height: 100%;
   padding: 40px 30px;
-  background: linear-gradient(135deg, #fdf8ea 0%, #f1d5a5 100%);
+  background: linear-gradient(135deg, #fff4e0 0%, #fdadbc 100%);
   border-radius: 15px;
   display: flex;
   flex-direction: column;
@@ -1060,31 +1044,31 @@ section {
   font-size: 22px;
   font-weight: 600;
   margin-bottom: 20px;
-  color: var(--emerald);
+  color: #5d4037;
 }
 
 .card-content {
   font-size: 15px;
   line-height: 1.8;
-  color: var(--emerald-soft);
+  color: #6d4c41;
   white-space: pre-line;
   text-align: center;
 }
 
 /* Swiper Pagination Custom Styles */
 .info-swiper .swiper-pagination-bullet {
-  background-color: var(--emerald);
+  background-color: #8b7355;
   opacity: 0.5;
 }
 
 .info-swiper .swiper-pagination-bullet-active {
   opacity: 1;
-  background-color: var(--emerald);
+  background-color: #8b7355;
 }
 
 /* Guestbook Section */
 .guestbook-section {
-  background-color: var(--champagne-mist);
+  background-color: #f9f9f9;
 }
 
 .guestbook-content {
@@ -1094,7 +1078,7 @@ section {
 
 .write-message-btn {
   padding: 12px 30px;
-  background-color: var(--emerald);
+  background-color: #8b7355;
   color: white;
   border: none;
   border-radius: 7px;
@@ -1105,7 +1089,7 @@ section {
 }
 
 .write-message-btn:hover {
-  background-color: var(--emerald-deep);
+  background-color: #6d5a45;
 }
 
 .guestbook-form {
@@ -1120,7 +1104,7 @@ section {
 .form-textarea {
   width: 100%;
   padding: 12px;
-  border: 1px solid var(--line);
+  border: 1px solid #ddd;
   border-radius: 5px;
   margin-bottom: 15px;
   font-size: 16px;
@@ -1135,7 +1119,7 @@ section {
 .form-submit {
   width: 100%;
   padding: 12px;
-  background-color: var(--emerald);
+  background-color: #8b7355;
   color: white;
   border: none;
   border-radius: 5px;
@@ -1145,7 +1129,7 @@ section {
 }
 
 .form-submit:hover {
-  background-color: var(--emerald-deep);
+  background-color: #6d5a45;
 }
 
 .guestbook-list {
@@ -1170,18 +1154,18 @@ section {
 
 .entry-author {
   font-weight: 600;
-  color: var(--text-ink);
+  color: #333;
 }
 
 .entry-date {
   font-size: 12px;
-  color: var(--text-faint);
+  color: #999;
 }
 
 .entry-message {
   font-size: 14px;
   line-height: 1.6;
-  color: var(--text-mid);
+  color: #555;
   margin-bottom: 8px;
 }
 
@@ -1197,7 +1181,7 @@ section {
 
 .pagination-btn {
   padding: 10px 20px;
-  background-color: var(--emerald);
+  background-color: #8b7355;
   color: white;
   border: none;
   border-radius: 8px;
@@ -1209,7 +1193,7 @@ section {
 }
 
 .pagination-btn:hover:not(:disabled) {
-  background-color: var(--emerald-deep);
+  background-color: #6d5a45;
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
@@ -1219,8 +1203,8 @@ section {
 }
 
 .pagination-btn:disabled {
-  background-color: var(--line);
-  color: var(--text-faint);
+  background-color: #ddd;
+  color: #999;
   cursor: not-allowed;
   opacity: 0.6;
 }
@@ -1228,8 +1212,8 @@ section {
 .pagination-number {
   padding: 10px 16px;
   background-color: #fff;
-  color: var(--text-ink);
-  border: 1px solid var(--line);
+  color: #333;
+  border: 1px solid #ddd;
   border-radius: 8px;
   cursor: pointer;
   font-size: 14px;
@@ -1239,28 +1223,28 @@ section {
 }
 
 .pagination-number:hover {
-  background-color: var(--champagne-mist);
-  border-color: var(--emerald);
+  background-color: #f5f5f5;
+  border-color: #8b7355;
   transform: translateY(-2px);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .pagination-number.active {
-  background-color: var(--emerald);
+  background-color: #8b7355;
   color: white;
-  border-color: var(--emerald);
+  border-color: #8b7355;
   font-weight: 600;
-  box-shadow: 0 2px 8px rgba(6, 78, 59, 0.35);
+  box-shadow: 0 2px 8px rgba(139, 115, 85, 0.3);
 }
 
 .pagination-number.active:hover {
-  background-color: var(--emerald-deep);
-  border-color: var(--emerald-deep);
+  background-color: #6d5a45;
+  border-color: #6d5a45;
 }
 
 .pagination-dots {
   padding: 10px 8px;
-  color: var(--text-faint);
+  color: #999;
   font-size: 14px;
   font-weight: 600;
   user-select: none;
@@ -1272,7 +1256,7 @@ section {
 
 /* Account Section */
 .account-section {
-  background: linear-gradient(135deg, #fdf8ea 0%, #f1d5a5 100%);
+  background: linear-gradient(135deg, #fff4e0 0%, #fdadbc 100%);
 }
 
 .account-content {
@@ -1289,19 +1273,19 @@ section {
 
 .tab-btn {
   padding: 10px 30px;
-  background-color: var(--champagne-mist);
-  border: 1px solid var(--line);
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
   border-radius: 25px;
   cursor: pointer;
   font-size: 15px;
   transition: all 0.3s;
-  color: var(--text-ink);
+  color: black;
 }
 
 .tab-btn.active {
-  background-color: var(--emerald);
+  background-color: #8b7355;
   color: white;
-  border-color: var(--emerald);
+  border-color: #8b7355;
 }
 
 .account-list {
@@ -1316,7 +1300,7 @@ section {
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  background-color: #fff;
+  background-color: #fafafa;
   border-radius: 10px;
 }
 
@@ -1328,12 +1312,12 @@ section {
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 5px;
-  color: var(--text-ink);
+  color: #333;
 }
 
 .account-detail {
   font-size: 14px;
-  color: var(--text-soft);
+  color: #666;
 }
 
 .account-no-flowers {
@@ -1350,7 +1334,7 @@ section {
 
 .copy-btn {
   padding: 8px 20px;
-  background-color: var(--emerald);
+  background-color: #8b7355;
   color: white;
   border: none;
   border-radius: 20px;
@@ -1360,13 +1344,13 @@ section {
 }
 
 .copy-btn:hover {
-  background-color: var(--emerald-deep);
+  background-color: #6d5a45;
 }
 
 /* Flower Notice Section */
 .flower-notice-section {
   padding: 60px 20px;
-  background-color: var(--champagne-mist);
+  background-color: #f5f5f5;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1376,7 +1360,10 @@ section {
   max-width: 600px;
   width: 100%;
   aspect-ratio: 10 / 7;
-  background-color: #fff;
+  background-image: url("/flower.avif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   border-radius: 20px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -1386,24 +1373,6 @@ section {
   text-align: center;
   padding: 40px;
   position: relative;
-  overflow: hidden;
-}
-
-/* 핑크 꽃 배경 이미지를 텍스트와 분리해 샴페인 톤으로 보정 */
-.flower-notice-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  /* 같은 이미지 3장을 multiply로 겹쳐 연한 꽃의 농도를 증폭하고,
-     brightness로 크림색 바탕만 흰색으로 날려 카드 흰 배경에 녹인다 */
-  background-image: url("/flower.avif"), url("/flower.avif"),
-    url("/flower.avif");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-blend-mode: multiply;
-  filter: sepia(0.7) saturate(1.4) brightness(1.16) contrast(1.08);
-  mix-blend-mode: multiply;
 }
 
 .flower-notice-title {
@@ -1411,7 +1380,7 @@ section {
   z-index: 1;
   font-size: 24px;
   font-weight: 600;
-  color: var(--emerald);
+  color: #5d4037;
   margin-bottom: 15px;
   letter-spacing: 1px;
 }
@@ -1420,7 +1389,7 @@ section {
   position: relative;
   z-index: 1;
   font-size: 16px;
-  color: var(--text-soft);
+  color: #666;
   line-height: 1.8;
   margin-bottom: 8px;
   font-weight: 500;
@@ -1434,13 +1403,13 @@ section {
   justify-content: center;
   gap: 5px;
   padding: 20px;
-  background-color: var(--champagne-mist);
+  background-color: #f9f9f9;
   border-radius: 10px;
 }
 
 .account-notice p {
   font-size: 14px;
-  color: var(--text-soft);
+  color: #666;
   line-height: 1.6;
 }
 
@@ -1448,8 +1417,8 @@ section {
 .footer {
   padding: 10px 20px 60px 20px;
   text-align: center;
-  background-color: var(--champagne-mist);
-  color: var(--text-faint);
+  background-color: #f5f5f5;
+  color: #999;
   font-size: 14px;
 }
 
