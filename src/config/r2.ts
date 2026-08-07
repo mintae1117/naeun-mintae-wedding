@@ -3,22 +3,31 @@
 
 export const R2_CONFIG = {
   baseUrl: "https://pub-aff195e758a643619b9135886dc7b279.r2.dev",
-  folder: "my_wedding",
+  // 르레브 수정본 17장은 버킷의 my_wedding/wedding001 폴더 안에 있다.
+  folder: "my_wedding/wedding001",
 };
 
-// 이미지 파일명 설정
+// 이미지 파일명 설정 (wedding001은 히어로 전용, 갤러리는 002~017)
 export const IMAGE_FILES = {
   gallery: [
-    "wedtmp01.jpeg",
-    "wedtmp02.jpeg",
-    "wedtmp03.jpeg",
-    "wedtmp04.jpeg",
-    "wedtmp05.jpeg",
-    "wedtmp06.jpeg",
-    "wedtmp07.jpeg",
-    "wedtmp08.jpeg",
+    "wedding002.jpg",
+    "wedding003.jpg",
+    "wedding004.jpg",
+    "wedding005.jpg",
+    "wedding006.jpg",
+    "wedding007.jpg",
+    "wedding008.jpg",
+    "wedding009.jpg",
+    "wedding010.jpg",
+    "wedding011.jpg",
+    "wedding012.jpg",
+    "wedding013.jpg",
+    "wedding014.jpg",
+    "wedding015.jpg",
+    "wedding016.jpg",
+    "wedding017.jpg",
   ],
-  mainHero: "wedtmp01.jpeg",
+  mainHero: "wedding001.jpg",
 };
 
 // Helper function to build R2 image URL
