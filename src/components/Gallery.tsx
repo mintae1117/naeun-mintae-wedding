@@ -116,7 +116,12 @@ export const Gallery: React.FC<GalleryProps> = ({ data }) => {
             className="gallery-item"
             onClick={() => openModal(index)}
           >
-            <img src={image.url} alt={image.alt} className="gallery-image" />
+            <img
+              src={image.url}
+              alt={image.alt}
+              className="gallery-image"
+              loading="lazy"
+            />
           </div>
         ))}
       </div>
@@ -178,6 +183,7 @@ export const Gallery: React.FC<GalleryProps> = ({ data }) => {
                       src={image.url}
                       alt={image.alt}
                       className="modal-image"
+                      loading="lazy"
                     />
                   </div>
                 </SwiperSlide>
