@@ -65,6 +65,8 @@ const StyledMainPhoto = styled.img<{ $isLoaded: boolean }>`
   width: 360px;
   height: 480px;
   object-fit: cover;
+  /* 사진이 프레임보다 세로로 길어 잘릴 때 위(신부 머리)는 보존하고 아래만 잘리게 한다 */
+  object-position: top;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
   margin: 0 auto;
   display: ${({ $isLoaded }) => ($isLoaded ? "block" : "none")};
