@@ -29,7 +29,7 @@
 | Backend | Cloudflare Workers Functions |
 | Database | Cloudflare D1 (SQLite) |
 | Storage | Cloudflare R2 |
-| AI Chatbot | Groq API (Llama 3.3) |
+| AI Chatbot | Groq API (GPT-OSS 120B) |
 
 ---
 

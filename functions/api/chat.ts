@@ -120,10 +120,11 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
           Authorization: `Bearer ${apiKey}`,
         },
         body: JSON.stringify({
-          model: "llama-3.3-70b-versatile",
+          model: "openai/gpt-oss-120b", // llama-3.3-70b-versatile 폐기(2026-08-16)로 교체
           messages,
           temperature: 0.5, // 낮을수록 언어 이탈(러시아어 등)과 장황한 답변이 줄어듦
-          max_tokens: 300, // 답변 길이 제한 (간결한 답변 유도)
+          reasoning_effort: "low", // 단순 안내 챗봇이라 추론 최소화 (응답 속도/토큰 절약)
+          max_completion_tokens: 800, // reasoning 토큰 포함 한도라 여유 있게 설정 (간결함은 시스템 프롬프트로 유도)
           frequency_penalty: 0.5, // 같은 단어/문장 반복 억제
           presence_penalty: 0.3, // 이미 언급한 주제 재등장 억제
         }),
