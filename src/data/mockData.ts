@@ -5,7 +5,7 @@ export const mockWeddingData: WeddingData = {
   groom: {
     name: "김민태",
     englishName: "Kim Mintae",
-    phone: "010-1234-5678",
+    phone: "010-2245-8201",
     father: "김철범",
     mother: "이미영",
     relation: "장남",
@@ -13,21 +13,21 @@ export const mockWeddingData: WeddingData = {
     profile: {
       photo: getImageUrl("wedding002.jpg"),
       birth: "1996년 4월 11일",
-      region: "서울",
+      region: "부산 출신",
       tags: ["#ESFJ"],
     },
   },
   bride: {
     name: "김나은",
     englishName: "Kim Naeun",
-    phone: "010-1234-5678",
+    phone: "010-4775-5909",
     father: "김완기",
     mother: "이미희",
     relation: "차녀",
     profile: {
       photo: getImageUrl("wedding003.jpg"),
       birth: "1994년 12월 3일",
-      region: "서울",
+      region: "울산 출신",
       tags: ["#ENTP"],
     },
   },

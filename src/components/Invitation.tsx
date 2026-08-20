@@ -62,9 +62,14 @@ export const Invitation: React.FC<InvitationProps> = ({ data }) => {
                 <p className="profile-parents">
                   {parents.father} · {parents.mother}의 {person.relation}
                 </p>
-                {/* 데이터의 phone이 아직 목번호라 tel: 연결을 보류한다 —
-                    실번호 반영 시 onClick으로 `tel:${person.phone}`을 연다. */}
-                <button className="contact-btn">연락하기</button>
+                <button
+                  className="contact-btn"
+                  onClick={() => {
+                    window.location.href = `tel:${person.phone}`;
+                  }}
+                >
+                  연락하기
+                </button>
               </div>
             ))}
           </div>
