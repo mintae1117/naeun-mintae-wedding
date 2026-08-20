@@ -13,7 +13,7 @@ export const mockWeddingData: WeddingData = {
     profile: {
       photo: getImageUrl("wedding002.jpg"),
       birth: "1996년 4월 11일",
-      region: "부산 출신",
+      region: "부산",
       tags: ["#ESFJ"],
     },
   },
@@ -27,7 +27,7 @@ export const mockWeddingData: WeddingData = {
     profile: {
       photo: getImageUrl("wedding003.jpg"),
       birth: "1994년 12월 3일",
-      region: "울산 출신",
+      region: "울산",
       tags: ["#ENTP"],
     },
   },
