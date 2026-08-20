@@ -24,29 +24,49 @@ export const Invitation: React.FC<InvitationProps> = ({ data }) => {
           </p>
         </div>
 
-        <div className="parents-info">
-          <div className="parent-row">
-            <div className="parent-side">
-              <p className="parent-label">신랑</p>
-              <p className="parent-names">
-                {data.parents.groom.father} · {data.parents.groom.mother}
-              </p>
-              <p className="parent-relation">의 {data.groom.relation}</p>
-              <p className="child-name">{data.groom.name}</p>
-              <button className="contact-btn">연락하기</button>
-            </div>
-          </div>
-
-          <div className="parent-row">
-            <div className="parent-side">
-              <p className="parent-label">신부</p>
-              <p className="parent-names">
-                {data.parents.bride.father} · {data.parents.bride.mother}
-              </p>
-              <p className="parent-relation">의 {data.bride.relation}</p>
-              <p className="child-name">{data.bride.name}</p>
-              <button className="contact-btn">연락하기</button>
-            </div>
+        {/* 두 사람 프로필 카드: 사진 + 소개(생년월일·지역·태그) + 부모님 + 다짐 + 연락 */}
+        <div className="profile-intro">
+          <p className="profile-heading">두 사람을 소개합니다.</p>
+          <div className="profile-cards">
+            {(
+              [
+                {
+                  role: "신랑",
+                  person: data.groom,
+                  parents: data.parents.groom,
+                },
+                {
+                  role: "신부",
+                  person: data.bride,
+                  parents: data.parents.bride,
+                },
+              ] as const
+            ).map(({ role, person, parents }) => (
+              <div className="profile-card" key={role}>
+                <img
+                  className="profile-photo"
+                  src={person.profile.photo}
+                  alt={`${role} ${person.name}`}
+                  loading="lazy"
+                />
+                <p className="profile-name">
+                  <span className="profile-role">{role}</span>
+                  {person.name}
+                </p>
+                <hr className="profile-divider" />
+                <p className="profile-line">{person.profile.birth}</p>
+                <p className="profile-line">{person.profile.region}</p>
+                <p className="profile-line profile-tags">
+                  {person.profile.tags.join(" ")}
+                </p>
+                <p className="profile-parents">
+                  {parents.father} · {parents.mother}의 {person.relation}
+                </p>
+                {/* 데이터의 phone이 아직 목번호라 tel: 연결을 보류한다 —
+                    실번호 반영 시 onClick으로 `tel:${person.phone}`을 연다. */}
+                <button className="contact-btn">연락하기</button>
+              </div>
+            ))}
           </div>
         </div>
       </div>

@@ -18,6 +18,15 @@ export interface Person {
   father: string;
   mother: string;
   relation: string; // '장남', '차녀' 등
+  profile: PersonProfile;
+}
+
+// INVITATION 프로필 카드(두 사람을 소개합니다)에 쓰는 소개 정보
+export interface PersonProfile {
+  photo: string; // 프로필 사진 URL (임시: 갤러리 이미지)
+  birth: string; // 예: "1996년 4월 11일"
+  region: string; // 예: "서울"
+  tags: string[]; // 예: ["#ESFJ"]
 }
 
 export interface Venue {
