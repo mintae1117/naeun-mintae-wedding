@@ -166,35 +166,35 @@ export const mockWeddingData: WeddingData = {
     groom: [
       {
         holder: "김민태",
-        bank: "카카오뱅크",
-        accountNumber: "123-456-789012",
+        bank: "KB국민은행",
+        accountNumber: "217802-04-526902",
       },
       {
         holder: "이미영",
-        bank: "신한은행",
-        accountNumber: "110-123-456789",
+        bank: "KB국민은행",
+        accountNumber: "105-21-0346-759",
       },
       {
         holder: "김철범",
-        bank: "신한은행",
-        accountNumber: "110-123-456789",
+        bank: "신협은행",
+        accountNumber: "137-009-425634",
       },
     ],
     bride: [
       {
         holder: "김나은",
-        bank: "우리은행",
-        accountNumber: "1002-123-456789",
+        bank: "케이뱅크",
+        accountNumber: "100-122-090010",
       },
       {
         holder: "이미희",
-        bank: "KB국민은행",
-        accountNumber: "123456-01-123456",
+        bank: "농협은행",
+        accountNumber: "815076-56-094334",
       },
       {
         holder: "김완기",
-        bank: "KB국민은행",
-        accountNumber: "123456-01-123456",
+        bank: "카카오뱅크",
+        accountNumber: "3333-13-1260757",
       },
     ],
   },
