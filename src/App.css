@@ -369,9 +369,8 @@ section {
 }
 
 .profile-heading {
-  font-size: 20px;
-  font-weight: 600;
-  color: #8b7355;
+  font-size: 16px;
+  color: #666;
   margin-bottom: 30px;
 }
 
@@ -385,17 +384,28 @@ section {
 
 .profile-card {
   background-color: #fafafa;
-  border-radius: 10px;
-  padding: 18px 14px 24px;
+  /* 사진이 카드에 꽉 차도록 모서리 라운드와 사진 주변 패딩 없이, 아래 텍스트 영역만 여백 */
+  padding: 0 0 24px;
+}
+
+.profile-photo-frame {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  margin-bottom: 18px;
 }
 
 .profile-photo {
   width: 100%;
-  aspect-ratio: 3 / 4;
+  height: 100%;
   object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 18px;
   display: block;
+}
+
+/* 신부 사진은 인물이 살짝 멀리 잡혀 있어 아주 조금만 확대한다 */
+.profile-photo--zoom {
+  transform: scale(1.3);
+  transform-origin: 60% 50%;
 }
 
 .profile-name {
@@ -432,12 +442,18 @@ section {
 }
 
 @media (max-width: 480px) {
+  /* 사진이 꽉 차 보이도록 카드 안팎 여백을 줄이고, 비율도 세로로 덜 길게(4:5) */
   .profile-cards {
-    gap: 12px;
+    gap: 8px;
   }
 
   .profile-card {
-    padding: 14px 10px 20px;
+    padding: 0 0 18px;
+  }
+
+  .profile-photo-frame {
+    aspect-ratio: 4 / 5;
+    margin-bottom: 14px;
   }
 
   .profile-name {

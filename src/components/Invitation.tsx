@@ -26,6 +26,7 @@ export const Invitation: React.FC<InvitationProps> = ({ data }) => {
 
         {/* 두 사람 프로필 카드: 사진 + 소개(생년월일·지역·태그) + 부모님 + 다짐 + 연락 */}
         <div className="profile-intro">
+          <h2 className="section-title">PROFILE</h2>
           <p className="profile-heading">두 사람을 소개합니다.</p>
           <div className="profile-cards">
             {(
@@ -43,12 +44,16 @@ export const Invitation: React.FC<InvitationProps> = ({ data }) => {
               ] as const
             ).map(({ role, person, parents }) => (
               <div className="profile-card" key={role}>
-                <img
-                  className="profile-photo"
-                  src={person.profile.photo}
-                  alt={`${role} ${person.name}`}
-                  loading="lazy"
-                />
+                <div className="profile-photo-frame">
+                  <img
+                    className={`profile-photo${
+                      role === "신부" ? " profile-photo--zoom" : ""
+                    }`}
+                    src={person.profile.photo}
+                    alt={`${role} ${person.name}`}
+                    loading="lazy"
+                  />
+                </div>
                 <p className="profile-name">
                   <span className="profile-role">{role}</span>
                   {person.name}
