@@ -85,7 +85,7 @@ section {
 }
 
 .heart-icon {
-  color: #fdadbc;
+  color: #f9c3ce;
   font-size: 24px;
   margin: 0 10px;
   vertical-align: middle;
@@ -226,12 +226,12 @@ section {
 }
 
 .music-control-fixed.playing .music-icon {
-  color: #ff6b6b;
+  color: #f58f8f;
   animation: pulse 1.5s infinite;
 }
 
 .music-control-fixed.playing {
-  border: 2px solid #ff6b6b;
+  border: 2px solid #f58f8f;
 }
 
 .music-off-icon {
@@ -294,7 +294,7 @@ section {
 
 /* Invitation Section */
 .invitation-section {
-  background: linear-gradient(135deg, #fff4e0 0%, #fdadbc 100%);
+  background: linear-gradient(135deg, #fff4e0 0%, #fadbe1 100%);
 }
 
 .invitation-content {
@@ -776,7 +776,7 @@ section {
 
 /* Wedding Date Section */
 .wedding-date-section {
-  background: linear-gradient(135deg, #fff4e0 0%, #fdadbc 100%);
+  background: linear-gradient(135deg, #fff4e0 0%, #fadbe1 100%);
   padding: 80px 20px;
 }
 
@@ -845,7 +845,7 @@ section {
 }
 
 .calendar-day-label.weekend {
-  color: #ff6b6b;
+  color: #f58f8f;
 }
 
 .calendar-grid {
@@ -870,15 +870,15 @@ section {
 }
 
 .calendar-date.weekend {
-  color: #ff6b6b;
+  color: #f58f8f;
 }
 
 .calendar-date.wedding-day {
-  background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%);
+  background: linear-gradient(135deg, #f58f8f 0%, #fab5b5 100%);
   color: white;
   font-weight: 700;
   font-size: 16px;
-  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.6);
+  box-shadow: 0 4px 12px rgba(245, 143, 143, 0.5);
   transform: scale(1.1);
 }
 
@@ -915,7 +915,7 @@ section {
 .countdown-value {
   font-size: 28px;
   font-weight: 700;
-  color: #ff6b6b;
+  color: #f58f8f;
   line-height: 1;
   margin-bottom: 5px;
 }

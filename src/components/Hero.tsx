@@ -56,7 +56,7 @@ const Spinner = styled.div`
   width: 40px;
   height: 40px;
   border: 3px solid #f0f0f0;
-  border-top: 3px solid #fdadbc;
+  border-top: 3px solid #f9c3ce;
   border-radius: 50%;
   animation: ${spin} 1s linear infinite;
 `;
@@ -183,7 +183,7 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
     <section className="hero-section">
       <Snowfall
         snowflakeCount={20}
-        color="#fdadbc"
+        color="#f9c3ce"
         style={{ zIndex: "101" }}
         radius={[10.0, 15.0]}
         images={images}

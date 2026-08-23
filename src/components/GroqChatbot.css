@@ -6,7 +6,7 @@
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #ff6b9d 0%, #ffa07a 100%);
+  background: linear-gradient(135deg, #ff9dbd 0%, #ffc0a4 100%);
   border: none;
   color: white;
   display: flex;
@@ -68,7 +68,7 @@
 
 /* Header */
 .chatbot-header {
-  background: linear-gradient(135deg, #ff6b9d 0%, #ffa07a 100%);
+  background: linear-gradient(135deg, #ff9dbd 0%, #ffc0a4 100%);
   color: white;
   padding: 16px 20px;
   display: flex;
@@ -151,7 +151,7 @@
 }
 
 .chatbot-message-user {
-  background: linear-gradient(135deg, #ff6b9d 0%, #ffa07a 100%);
+  background: linear-gradient(135deg, #ff9dbd 0%, #ffc0a4 100%);
   color: white;
   align-self: flex-end;
   border-bottom-right-radius: 4px;
@@ -240,7 +240,7 @@
 }
 
 .chatbot-input:focus {
-  border-color: #ff6b9d;
+  border-color: #ff9dbd;
 }
 
 .chatbot-input:disabled {
@@ -253,7 +253,7 @@
   height: 40px;
   flex-shrink: 0; /* 입력창에 밀려 찌그러지거나 잘리지 않게 고정 */
   border-radius: 50%;
-  background: linear-gradient(135deg, #ff6b9d 0%, #ffa07a 100%);
+  background: linear-gradient(135deg, #ff9dbd 0%, #ffc0a4 100%);
   border: none;
   color: white;
   display: flex;
@@ -265,7 +265,7 @@
 
 .chatbot-send-button:hover:not(:disabled) {
   transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(255, 107, 157, 0.3);
+  box-shadow: 0 4px 12px rgba(255, 157, 189, 0.3);
 }
 
 .chatbot-send-button:active:not(:disabled) {
