@@ -25,7 +25,6 @@ export interface Person {
 export interface PersonProfile {
   photo: string; // 프로필 사진 URL (임시: 갤러리 이미지)
   birth: string; // 예: "1996년 4월 11일"
-  region: string; // 예: "서울"
   tags: string[]; // 예: ["#ESFJ"]
 }
 

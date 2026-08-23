@@ -56,7 +56,7 @@ export const Invitation: React.FC<InvitationProps> = ({ data }) => {
                 <hr className="profile-divider" />
                 <p className="profile-line">{person.profile.birth}</p>
                 <p className="profile-line">
-                  #{person.profile.region} · {person.profile.tags.join(" ")}
+                  {person.profile.tags.join(" · ")}
                 </p>
                 <p className="profile-parents">
                   {parents.father} · {parents.mother}의 {person.relation}
