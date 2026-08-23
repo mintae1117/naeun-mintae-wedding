@@ -31,8 +31,8 @@ export const mockWeddingData: WeddingData = {
   weddingDate: "2026.10.25 (일요일)",
   weddingTime: "오후 2시",
   venue: {
-    name: "아벤티움 웨딩 서울",
-    address: "서울특별시 중구 청파로 464 브라운스톤서울 3층",
+    name: "채플웨딩홀 아벤티움",
+    address: "서울특별시 중구 청파로 464 브라운스톤서울",
     phone: "02-313-2480",
     floor: "3층",
     hall: "아벤티움 단독홀",
