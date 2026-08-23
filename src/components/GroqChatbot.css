@@ -227,6 +227,9 @@
 
 .chatbot-input {
   flex: 1;
+  /* input은 flex 안에서도 고유 최소폭(min-width: auto) 밑으로 안 줄어들어
+     좁은 기기에서 전송 버튼을 밀어내므로 반드시 0으로 풀어준다 */
+  min-width: 0;
   padding: 12px 16px;
   border: 1px solid #e5e7eb;
   border-radius: 24px;
@@ -248,6 +251,7 @@
 .chatbot-send-button {
   width: 40px;
   height: 40px;
+  flex-shrink: 0; /* 입력창에 밀려 찌그러지거나 잘리지 않게 고정 */
   border-radius: 50%;
   background: linear-gradient(135deg, #ff6b9d 0%, #ffa07a 100%);
   border: none;

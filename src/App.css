@@ -424,10 +424,6 @@ section {
   line-height: 1.9;
 }
 
-.profile-tags {
-  color: #666;
-}
-
 .profile-parents {
   font-size: 12.5px;
   color: #999;
@@ -555,6 +551,32 @@ section {
   background-color: #fff;
 }
 
+/* 갤러리 대표 사진: 그리드 위에 한 장만 크게 */
+.gallery-featured {
+  max-width: 520px;
+  margin: 0 auto 15px;
+  padding: 0 20px;
+  cursor: pointer;
+}
+
+/* 모바일에서는 좌우 여백을 더 줘서 대표 사진이 과하게 크지 않게 */
+@media (max-width: 768px) {
+  .gallery-featured {
+    padding: 0 44px;
+  }
+}
+
+.gallery-featured-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: box-shadow 0.3s ease;
+}
+
+.gallery-featured:hover .gallery-featured-image {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -604,6 +626,11 @@ section {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* 2번 사진은 인물이 위쪽에 있어 중앙 크롭 시 얼굴이 잘려 상단 기준으로 자른다 */
+.gallery-item:nth-child(2) .gallery-image {
+  object-position: top;
 }
 
 .image-placeholder {
@@ -1095,67 +1122,6 @@ section {
   background-color: #f8f9fa;
 }
 
-/* Information Section */
-.information-section {
-  background-color: #fff;
-}
-
-.info-swiper-container {
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 40px 20px;
-}
-
-.info-swiper {
-  width: 100%;
-  height: 300px;
-}
-
-.info-swiper .swiper-slide {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.info-card {
-  width: 100%;
-  height: 100%;
-  padding: 40px 30px;
-  background: linear-gradient(135deg, #fff4e0 0%, #fdadbc 100%);
-  border-radius: 15px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-.card-title {
-  font-size: 22px;
-  font-weight: 600;
-  margin-bottom: 20px;
-  color: #5d4037;
-}
-
-.card-content {
-  font-size: 15px;
-  line-height: 1.8;
-  color: #6d4c41;
-  white-space: pre-line;
-  text-align: center;
-}
-
-/* Swiper Pagination Custom Styles */
-.info-swiper .swiper-pagination-bullet {
-  background-color: #8b7355;
-  opacity: 0.5;
-}
-
-.info-swiper .swiper-pagination-bullet-active {
-  opacity: 1;
-  background-color: #8b7355;
-}
-
 /* Guestbook Section */
 .guestbook-section {
   background-color: #f9f9f9;
@@ -1230,7 +1196,7 @@ section {
 
 .guestbook-entry {
   background-color: #fff;
-  padding: 20px;
+  padding: 12px 16px;
   border-radius: 10px;
   text-align: left;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
@@ -1239,7 +1205,7 @@ section {
 .entry-header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
 }
 
 .entry-author {
@@ -1254,9 +1220,29 @@ section {
 
 .entry-message {
   font-size: 14px;
-  line-height: 1.6;
+  line-height: 1.5;
   color: #555;
-  margin-bottom: 8px;
+  margin-bottom: 0;
+}
+
+/* 두 줄이 넘는 메시지는 잘라서 표시 */
+.entry-message--clamped {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.entry-expand-btn {
+  margin-top: 4px;
+  padding: 0;
+  background: none;
+  border: none;
+  color: #8b7355;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
 }
 
 /* Pagination */
@@ -1346,7 +1332,14 @@ section {
 
 /* Account Section */
 .account-section {
-  background: linear-gradient(135deg, #fff4e0 0%, #fdadbc 100%);
+  background-color: #fff;
+}
+
+.account-notice {
+  font-size: 15px;
+  line-height: 1.9;
+  color: #444;
+  margin-bottom: 40px;
 }
 
 .account-content {
@@ -1354,35 +1347,59 @@ section {
   margin: 0 auto;
 }
 
-.account-tabs {
+.account-group + .account-group {
+  margin-top: 14px;
+}
+
+.account-toggle {
+  position: relative;
+  width: 100%;
   display: flex;
-  gap: 10px;
   justify-content: center;
-  margin-bottom: 30px;
-}
-
-.tab-btn {
-  padding: 10px 30px;
+  align-items: center;
+  padding: 22px 48px;
   background-color: #f5f5f5;
-  border: 1px solid #ddd;
-  border-radius: 25px;
+  color: #333;
+  border: none;
+  border-radius: 12px;
   cursor: pointer;
-  font-size: 15px;
-  transition: all 0.3s;
-  color: black;
+  font-size: 16px;
+  transition: background-color 0.3s;
 }
 
-.tab-btn.active {
-  background-color: #8b7355;
-  color: white;
-  border-color: #8b7355;
+.account-toggle:hover {
+  background-color: #ededed;
+}
+
+.account-toggle-icon {
+  position: absolute;
+  right: 20px;
+  font-size: 18px;
+  color: #666;
+  transition: transform 0.3s;
+}
+
+.account-toggle.open .account-toggle-icon {
+  transform: rotate(180deg);
+}
+
+@keyframes account-slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .account-list {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  margin-bottom: 20px;
+  margin-top: 10px;
+  animation: account-slide-down 0.25s ease-out;
 }
 
 .account-item {
@@ -1391,6 +1408,7 @@ section {
   align-items: center;
   padding: 20px;
   background-color: #fafafa;
+  border: 1px solid #f0f0f0;
   border-radius: 10px;
 }
 
@@ -1410,18 +1428,6 @@ section {
   color: #666;
 }
 
-.account-no-flowers {
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  object-fit: contain;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  right: 0;
-  bottom: 0;
-}
-
 .copy-btn {
   padding: 8px 20px;
   background-color: #8b7355;
@@ -1437,77 +1443,123 @@ section {
   background-color: #6d5a45;
 }
 
-/* Flower Notice Section */
-.flower-notice-section {
-  padding: 60px 20px;
-  background-color: #f5f5f5;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.flower-notice-card {
+/* 사진 위·아래가 흰 배경으로 스며들 듯 사라지는 공용 페이드 프레임 (Interlude, LastPage) */
+.fade-photo-wrap {
+  position: relative;
   max-width: 600px;
+  margin: 0 auto;
+}
+
+.fade-photo {
   width: 100%;
-  aspect-ratio: 10 / 7;
-  background-image: url("/flower.avif");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  border-radius: 20px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  height: auto;
+  display: block;
+}
+
+.fade-photo-wrap::before,
+.fade-photo-wrap::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 17%;
+  pointer-events: none;
+}
+
+.fade-photo-wrap::before {
+  top: 0;
+  background: linear-gradient(
+    to bottom,
+    #fff 0%,
+    #fff 6%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+.fade-photo-wrap::after {
+  bottom: 0;
+  background: linear-gradient(
+    to top,
+    #fff 0%,
+    #fff 6%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+/* Interlude Section (오시는 길 다음 사진 한 장) */
+.interlude-section {
+  background-color: #fff;
+  /* 페이드가 잘 보이도록 위아래 여백을 두고, 가로는 풀블리드(모바일에서 좌우 패딩 없음) */
+  padding: 60px 0;
+}
+
+/* Last Page Section */
+.last-page-section {
+  background-color: #fff;
+  /* 사진은 풀블리드(가로 패딩 없음), 문구는 header 자체 패딩으로 여백 확보 */
+  padding: 70px 0 60px;
+  text-align: left;
+}
+
+.last-page-header {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 24px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 40px;
-  position: relative;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
 }
 
-.flower-notice-title {
-  position: relative;
-  z-index: 1;
-  font-size: 24px;
-  font-weight: 600;
-  color: #5d4037;
-  margin-bottom: 15px;
-  letter-spacing: 1px;
+.last-page-accent {
+  display: block;
+  width: 36px;
+  height: 2px;
+  background-color: #2a2620;
+  margin-bottom: 18px;
 }
 
-.flower-notice-text {
-  position: relative;
-  z-index: 1;
-  font-size: 16px;
-  color: #666;
-  line-height: 1.8;
-  margin-bottom: 8px;
-  font-weight: 500;
+.last-page-phrase {
+  font-family: "Gowun Batang", serif;
+  font-size: 20px;
+  line-height: 1.55;
+  color: #2a2620;
 }
 
-.account-notice {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 10px;
+.last-page-date {
+  font-family: "Nunito", "Quicksand", sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #2a2620;
+  white-space: nowrap;
+  padding-bottom: 2px;
 }
 
-.account-notice p {
-  font-size: 14px;
-  color: #666;
-  line-height: 1.6;
+.last-page-photo-wrap {
+  margin-top: 34px;
+}
+
+@media (max-width: 480px) {
+  .last-page-phrase {
+    font-size: 17px;
+  }
+
+  .last-page-date {
+    font-size: 16px;
+  }
+
+  .last-page-accent {
+    width: 30px;
+    margin-bottom: 14px;
+  }
 }
 
 /* Footer */
 .footer {
   padding: 10px 20px 60px 20px;
   text-align: center;
-  background-color: #f5f5f5;
+  background-color: #fff;
   color: #999;
   font-size: 14px;
 }
@@ -1645,24 +1697,6 @@ section {
     padding: 8px 6px;
     font-size: 13px;
     min-width: 26px;
-  }
-
-  /* Flower Notice Responsive - Tablet */
-  .flower-notice-section {
-    padding: 50px 15px;
-  }
-
-  .flower-notice-card {
-    max-width: 500px;
-    padding: 35px;
-  }
-
-  .flower-notice-title {
-    font-size: 22px;
-  }
-
-  .flower-notice-text {
-    font-size: 15px;
   }
 }
 
@@ -1817,31 +1851,5 @@ section {
     padding: 8px 4px;
     font-size: 12px;
     min-width: 24px;
-  }
-
-  .account-no-flowers {
-    width: 50px;
-    height: 50px;
-  }
-
-  /* Flower Notice Responsive - Mobile */
-  .flower-notice-section {
-    padding: 40px 10px;
-  }
-
-  .flower-notice-card {
-    border-radius: 15px;
-    max-width: 95%;
-    padding: 30px 20px;
-  }
-
-  .flower-notice-title {
-    font-size: 18px;
-    margin-bottom: 12px;
-  }
-
-  .flower-notice-text {
-    font-size: 14px;
-    margin-bottom: 6px;
   }
 }

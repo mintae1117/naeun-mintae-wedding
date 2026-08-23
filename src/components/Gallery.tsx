@@ -104,26 +104,40 @@ export const Gallery: React.FC<GalleryProps> = ({ data }) => {
       <p className="section-subtitle">우리의 소중한 순간들</p>
 
       <div
-        className="gallery-grid"
+        className="gallery-body"
         style={{
           opacity: imagesLoaded ? 1 : 0,
           transition: "opacity 0.5s ease-in-out",
         }}
       >
-        {data.gallery.map((image, index) => (
-          <div
-            key={image.id}
-            className="gallery-item"
-            onClick={() => openModal(index)}
-          >
+        {/* 대표 사진: 그리드 위에 한 장만 크게 */}
+        {data.gallery.length > 0 && (
+          <div className="gallery-featured" onClick={() => openModal(0)}>
             <img
-              src={image.url}
-              alt={image.alt}
-              className="gallery-image"
+              src={data.gallery[0].url}
+              alt={data.gallery[0].alt}
+              className="gallery-featured-image"
               loading="lazy"
             />
           </div>
-        ))}
+        )}
+
+        <div className="gallery-grid">
+          {data.gallery.slice(1).map((image, index) => (
+            <div
+              key={image.id}
+              className="gallery-item"
+              onClick={() => openModal(index + 1)}
+            >
+              <img
+                src={image.url}
+                alt={image.alt}
+                className="gallery-image"
+                loading="lazy"
+              />
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* 로딩 중 placeholder */}

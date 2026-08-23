@@ -178,7 +178,6 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
   const dateOnly = data.weddingDate.split(" ")[0];
   const [year, month, day] = dateOnly.split(".");
   const dateEn = `${year} . ${month} . ${day}`;
-  const dateKo = `${year}년 ${Number(month)}월 ${Number(day)}일`;
 
   return (
     <section className="hero-section">
@@ -226,9 +225,7 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
           <DateEn>{dateEn}</DateEn>
         </DateRow>
 
-        <DateKo>
-          {dateKo} · {data.weddingTime}
-        </DateKo>
+        <DateKo>{data.weddingTime} · 아벤티움 서울</DateKo>
       </div>
     </section>
   );

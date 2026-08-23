@@ -4,15 +4,15 @@ import { Interview } from "./components/Interview";
 import { Gallery } from "./components/Gallery";
 import { WeddingDate } from "./components/WeddingDate";
 import { Location } from "./components/Location";
-import { Information } from "./components/Information";
 import { Guestbook } from "./components/Guestbook";
 import { Account } from "./components/Account";
+import { LastPage } from "./components/LastPage";
+import { Interlude } from "./components/Interlude";
 import { ScrollReveal } from "./components/ScrollReveal";
 import { GroqChatbot } from "./components/GroqChatbot";
 import { mockWeddingData } from "./data/mockData";
 import "./App.css";
 import { BgMusic } from "./components/BgMusic";
-import { FlowerInfo } from "./components/FlowerInfo";
 
 function App() {
   return (
@@ -44,8 +44,8 @@ function App() {
         <Location data={mockWeddingData} />
       </ScrollReveal>
 
-      <ScrollReveal direction="fade" delay={0.2}>
-        <Information />
+      <ScrollReveal direction="fade" delay={0.15}>
+        <Interlude />
       </ScrollReveal>
 
       <ScrollReveal direction="up" delay={0.15}>
@@ -57,7 +57,7 @@ function App() {
       </ScrollReveal>
 
       <ScrollReveal direction="fade" delay={0.15}>
-        <FlowerInfo />
+        <LastPage />
       </ScrollReveal>
 
       <footer className="footer">

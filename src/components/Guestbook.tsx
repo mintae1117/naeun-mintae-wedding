@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import type { WeddingData, GuestbookEntry } from "../types";
 
 interface GuestbookProps {
@@ -6,6 +6,38 @@ interface GuestbookProps {
 }
 
 const API_URL = "/api/guestbook";
+
+// 메시지가 두 줄을 넘으면 잘라서 보여주고 펼쳐보기 버튼으로 전체를 볼 수 있게 한다
+const EntryMessage: React.FC<{ message: string }> = ({ message }) => {
+  const [expanded, setExpanded] = useState(false);
+  const [isClamped, setIsClamped] = useState(false);
+  const messageRef = useRef<HTMLParagraphElement>(null);
+
+  // 접힌 상태로 렌더링된 직후 실제로 잘렸는지 측정해 버튼 노출 여부를 정한다
+  useEffect(() => {
+    const el = messageRef.current;
+    if (el) setIsClamped(el.scrollHeight > el.clientHeight + 1);
+  }, [message]);
+
+  return (
+    <>
+      <p
+        ref={messageRef}
+        className={`entry-message${expanded ? "" : " entry-message--clamped"}`}
+      >
+        {message}
+      </p>
+      {(isClamped || expanded) && (
+        <button
+          className="entry-expand-btn"
+          onClick={() => setExpanded((prev) => !prev)}
+        >
+          {expanded ? "접기" : "펼쳐보기"}
+        </button>
+      )}
+    </>
+  );
+};
 
 export const Guestbook: React.FC<GuestbookProps> = ({ data }) => {
   const [entries, setEntries] = useState<GuestbookEntry[]>([]);
@@ -263,7 +295,7 @@ export const Guestbook: React.FC<GuestbookProps> = ({ data }) => {
                   </button>
                 </div>
               </div>
-              <p className="entry-message">{entry.message}</p>
+              <EntryMessage message={entry.message} />
               {deleteTarget === entry.id && (
                 <div style={{ marginTop: "12px", display: "flex", gap: "8px" }}>
                   <input

@@ -3,31 +3,25 @@
 
 export const R2_CONFIG = {
   baseUrl: "https://pub-aff195e758a643619b9135886dc7b279.r2.dev",
-  // 르레브 수정본 17장은 버킷의 my_wedding/wedding001 폴더 안에 있다.
-  folder: "my_wedding/wedding001",
+  // 최종본 사진은 버킷의 my_wedding 폴더 아래 용도별 폴더에 나뉘어 있다.
+  // gal_grid_final: 갤러리 20장 / hero_final: 히어로 1장 / info_final: 신랑·신부 프로필 2장
+  folder: "my_wedding",
 };
 
-// 이미지 파일명 설정 (wedding001은 히어로 전용, 갤러리는 002~017)
+// 이미지 파일 경로 설정 (folder 기준 상대 경로)
+// 갤러리 20장 중 3번은 대표 사진, 5번은 중간 삽입 컷, 18번은 마지막 페이지로 빠지고 17번은 쓰지 않는다.
 export const IMAGE_FILES = {
-  gallery: [
-    "wedding002.jpg",
-    "wedding003.jpg",
-    "wedding004.jpg",
-    "wedding005.jpg",
-    "wedding006.jpg",
-    "wedding007.jpg",
-    "wedding008.jpg",
-    "wedding009.jpg",
-    "wedding010.jpg",
-    "wedding011.jpg",
-    "wedding012.jpg",
-    "wedding013.jpg",
-    "wedding014.jpg",
-    "wedding015.jpg",
-    "wedding016.jpg",
-    "wedding017.jpg",
-  ],
-  mainHero: "wedding001.jpg",
+  galleryFeatured: "gal_grid_final/3.jpg",
+  gallery: [1, 2, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 19, 20].map(
+    (n) => `gal_grid_final/${n}.jpg`
+  ),
+  interlude: "gal_grid_final/5.jpg",
+  lastPage: "gal_grid_final/18.jpg",
+  mainHero: "hero_final/hero.jpg",
+  profile: {
+    groom: "info_final/mintae.jpg",
+    bride: "info_final/naeun.jpg",
+  },
 };
 
 // Helper function to build R2 image URL
@@ -35,13 +29,15 @@ export const getImageUrl = (filename: string): string => {
   return `${R2_CONFIG.baseUrl}/${R2_CONFIG.folder}/${filename}`;
 };
 
-// 갤러리 이미지 URL들을 미리 생성
+// 갤러리 이미지 URL들을 미리 생성 (맨 앞이 대표 사진)
 export const getGalleryImages = () => {
-  return IMAGE_FILES.gallery.map((filename, index) => ({
-    id: String(index + 1),
-    url: getImageUrl(filename),
-    alt: `웨딩 사진 ${index + 1}`,
-  }));
+  return [IMAGE_FILES.galleryFeatured, ...IMAGE_FILES.gallery].map(
+    (filename, index) => ({
+      id: String(index + 1),
+      url: getImageUrl(filename),
+      alt: `웨딩 사진 ${index + 1}`,
+    })
+  );
 };
 
 // 메인 히어로 이미지 URL

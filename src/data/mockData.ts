@@ -1,5 +1,5 @@
 import type { WeddingData } from "../types";
-import { getGalleryImages, getImageUrl } from "../config/r2";
+import { getGalleryImages, getImageUrl, IMAGE_FILES } from "../config/r2";
 
 export const mockWeddingData: WeddingData = {
   groom: {
@@ -9,9 +9,8 @@ export const mockWeddingData: WeddingData = {
     father: "김철범",
     mother: "이미영",
     relation: "장남",
-    // 사진은 임시로 갤러리 이미지 사용(추후 프로필 사진으로 교체).
     profile: {
-      photo: getImageUrl("wedding002.jpg"),
+      photo: getImageUrl(IMAGE_FILES.profile.groom),
       birth: "1996년 4월 11일",
       region: "부산",
       tags: ["#ESFJ"],
@@ -25,7 +24,7 @@ export const mockWeddingData: WeddingData = {
     mother: "이미희",
     relation: "차녀",
     profile: {
-      photo: getImageUrl("wedding003.jpg"),
+      photo: getImageUrl(IMAGE_FILES.profile.bride),
       birth: "1994년 12월 3일",
       region: "울산",
       tags: ["#ENTP"],

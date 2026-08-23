@@ -31,14 +31,14 @@ export const Invitation: React.FC<InvitationProps> = ({ data }) => {
             {(
               [
                 {
-                  role: "신랑",
-                  person: data.groom,
-                  parents: data.parents.groom,
-                },
-                {
                   role: "신부",
                   person: data.bride,
                   parents: data.parents.bride,
+                },
+                {
+                  role: "신랑",
+                  person: data.groom,
+                  parents: data.parents.groom,
                 },
               ] as const
             ).map(({ role, person, parents }) => (
@@ -55,9 +55,8 @@ export const Invitation: React.FC<InvitationProps> = ({ data }) => {
                 </p>
                 <hr className="profile-divider" />
                 <p className="profile-line">{person.profile.birth}</p>
-                <p className="profile-line">{person.profile.region}</p>
-                <p className="profile-line profile-tags">
-                  {person.profile.tags.join(" ")}
+                <p className="profile-line">
+                  #{person.profile.region} · {person.profile.tags.join(" ")}
                 </p>
                 <p className="profile-parents">
                   {parents.father} · {parents.mother}의 {person.relation}
