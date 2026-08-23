@@ -12,7 +12,7 @@ export const mockWeddingData: WeddingData = {
     profile: {
       photo: getImageUrl(IMAGE_FILES.profile.groom),
       birth: "1996년 4월 11일",
-      tags: ["#ESFJ", "#러닝좋아"],
+      tags: ["#ISFJ", "#강아지", "#순딩왕자", "#러닝좋아"],
     },
   },
   bride: {
@@ -25,7 +25,7 @@ export const mockWeddingData: WeddingData = {
     profile: {
       photo: getImageUrl(IMAGE_FILES.profile.bride),
       birth: "1994년 12월 3일",
-      tags: ["#ENTP", "#고양이집사"],
+      tags: ["#ENTP", "#고양이", "#미소천사", "#빵좋아"],
     },
   },
   weddingDate: "2026.10.25 (일요일)",
