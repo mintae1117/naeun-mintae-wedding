@@ -562,6 +562,45 @@ section {
   color: #555;
 }
 
+/* 인터뷰 고양이 사진 카드 — Swiper 카드 효과(드래그로 넘김), 탭하면 모달로 크게 */
+.photo-cards-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 28px;
+}
+
+.photo-cards-swiper {
+  width: min(240px, 62vw);
+  aspect-ratio: 3 / 4;
+}
+
+.photo-cards-swiper .swiper-slide {
+  padding: 9px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.photo-cards-swiper .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  /* 카드 흰 배경 위에서 로드 전에도 톤이 비지 않게 */
+  background-color: #f3ede8;
+}
+
+.photo-cards-hint {
+  margin-top: 20px;
+  font-size: 12px;
+  color: #999;
+  letter-spacing: 0.5px;
+}
+
 /* Gallery Section */
 .gallery-section {
   background-color: #fff;

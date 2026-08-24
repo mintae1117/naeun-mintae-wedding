@@ -64,8 +64,10 @@ export interface GalleryImage {
 
 export interface Interview {
   question: string;
-  groomAnswer: string;
-  brideAnswer: string;
+  /** 신랑·신부 공동 답변('우리' 화법이라 신랑/신부를 나누지 않는다). */
+  answer: string;
+  /** 답변 아래에 겹쳐 보여줄 사진 스택 (선택 — '작은 가족' 문항의 고양이 사진). */
+  photos?: GalleryImage[];
 }
 
 export interface GuestbookEntry {

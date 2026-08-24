@@ -18,6 +18,11 @@ export const IMAGE_FILES = {
   interlude: "gal_grid_final/5.jpg",
   lastPage: "gal_grid_final/18.jpg",
   mainHero: "hero_final/hero.jpg",
+  // cats_final: 고양이 고래·도래 사진(WebP, 긴 변 1000px) — 인터뷰 '작은 가족' 문항의 카드.
+  // 4번은 빼기로 해서 R2에서 삭제됨.
+  cats: [1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13].map(
+    (n) => `cats_final/${n}.webp`
+  ),
   profile: {
     groom: "info_final/mintae.jpg",
     bride: "info_final/naeun.jpg",
@@ -43,4 +48,13 @@ export const getGalleryImages = () => {
 // 메인 히어로 이미지 URL
 export const getMainHeroImageUrl = (): string => {
   return getImageUrl(IMAGE_FILES.mainHero);
+};
+
+// 고양이(고래·도래) 사진 URL들 — 인터뷰 사진 스택용
+export const getCatImages = () => {
+  return IMAGE_FILES.cats.map((filename, index) => ({
+    id: String(index + 1),
+    url: getImageUrl(filename),
+    alt: `고양이 고래와 도래 사진 ${index + 1}`,
+  }));
 };

@@ -1,5 +1,5 @@
 import type { WeddingData } from "../types";
-import { getGalleryImages, getImageUrl, IMAGE_FILES } from "../config/r2";
+import { getCatImages, getGalleryImages, getImageUrl, IMAGE_FILES } from "../config/r2";
 
 export const mockWeddingData: WeddingData = {
   groom: {
@@ -81,21 +81,20 @@ export const mockWeddingData: WeddingData = {
   gallery: getGalleryImages(),
   interview: [
     {
-      question: "결혼을 결심한 이유는?",
-      groomAnswer:
-        "서로를 있는 그대로 존중하며 함께 웃을 수 있는 사람이기 때문입니다.",
-      brideAnswer:
-        "함께 있을 때 가장 행복하고 편안해서 평생 함께하고 싶었습니다.",
+      question: "결혼을 결심하게 된 이유는?",
+      answer:
+        "같이 있을 때 가장 즐겁고 편안한 사람이에요. 서로 닮은 점도 다른 점도 많겠지만, '우리'로 살아가는 소중함을 감사히 여기며 평생 함께 하고 싶어요.",
     },
     {
-      question: "신혼여행은 어디로 가시나요?",
-      groomAnswer: "자연이 아름다운 뉴질랜드로 떠날 예정입니다!",
-      brideAnswer: "뉴질랜드의 멋진 자연 속에서 여유롭게 여행할 계획이에요.",
+      question: "신혼여행은 어디로 가나요?",
+      answer:
+        "결혼식을 마치고 일주일 후, 자연이 아름다운 나라 뉴질랜드로 2주간 떠날 예정이에요. 맑은 공기와 탁트인 절경을 보며 힐링하고 오겠습니다!",
     },
     {
-      question: "새로운 가정의 첫 터전은?",
-      groomAnswer: "서울 사당 근처에서 삶의 터전을 시작할 계획입니다.",
-      brideAnswer: "사당에서 시작해 앞으로 함께 꾸려갈 예정이에요.",
+      question: "두 사람의 작은 가족을 소개해주세요!",
+      answer:
+        "저희에게는 두 딸이 있는데요, 바로 신부가 7년째 함께 하고 있는 고양이 고래와 도래에요. 고래와 도래는 19년 2월에 함께 태어난 자매예요. 한 배에서 나왔지만 다리 길이도 털 색깔도 다르답니다. 엄마 아빠를 너무나 좋아하는 저희의 딸, 회색 작은 고양이 고래와 갈색 대왕 고양이 도래를 소개합니다!",
+      photos: getCatImages(),
     },
   ],
   guestbook: [
