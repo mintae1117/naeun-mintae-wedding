@@ -18,11 +18,8 @@ export const IMAGE_FILES = {
   interlude: "gal_grid_final/5.jpg",
   lastPage: "gal_grid_final/18.jpg",
   mainHero: "hero_final/hero.jpg",
-  // cats_final: 고양이 고래·도래 사진(WebP, 긴 변 1000px) — 인터뷰 '작은 가족' 문항의 카드.
-  // 4번은 빼기로 해서 R2에서 삭제됨.
-  cats: [1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13].map(
-    (n) => `cats_final/${n}.webp`
-  ),
+  // cats_final: 고양이 고래·도래 사진 13장(WebP, 긴 변 1000px) — 인터뷰 '작은 가족' 문항의 카드.
+  cats: Array.from({ length: 13 }, (_, i) => `cats_final/${i + 1}.webp`),
   profile: {
     groom: "info_final/mintae.jpg",
     bride: "info_final/naeun.jpg",

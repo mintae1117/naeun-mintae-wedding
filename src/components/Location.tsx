@@ -161,7 +161,14 @@ export const Location: React.FC<LocationProps> = ({ data }) => {
 
           <div className="parking-info">
             <h4 className="parking-title">주차 안내</h4>
-            <p className="parking-description">{data.venue.parking}</p>
+            {data.venue.parking.map((line, idx) => (
+              <p key={idx} className="parking-description">
+                {line}
+              </p>
+            ))}
+            {data.venue.parkingNote && (
+              <p className="parking-note">※ {data.venue.parkingNote}</p>
+            )}
           </div>
         </div>
 

@@ -36,7 +36,10 @@ export interface Venue {
   hall: string;
   mapUrl?: string;
   transportation: Transportation[];
-  parking: string;
+  /** 주차 안내 — 한 항목이 화면의 한 줄이다. */
+  parking: string[];
+  /** 주차 안내 아래에 작게 붙는 참고 멘트(정보가 아니라 하고 싶은 말). */
+  parkingNote?: string;
 }
 
 export interface Transportation {
