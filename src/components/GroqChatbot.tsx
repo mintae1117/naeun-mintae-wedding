@@ -94,7 +94,8 @@ export const GroqChatbot = () => {
         },
         body: JSON.stringify({
           message: userMessage,
-          history: messages,
+          // 최근 10개만 전송 (프롬프트 토큰 무한 누적 방지, 서버에서도 동일하게 제한)
+          history: messages.slice(-10),
         }),
       });
 
