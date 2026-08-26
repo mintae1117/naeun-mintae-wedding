@@ -1608,6 +1608,13 @@ section {
   margin-top: 34px;
 }
 
+/* 이 사진만 페이드를 짧게 둔다. 공용값(17%)은 세로가 긴 이 컷에서 흐려지는 띠가 인물까지
+   올라와 길어 보인다 — Interlude 는 그대로 두고 여기서만 덮어쓴다. */
+.last-page-photo-wrap::before,
+.last-page-photo-wrap::after {
+  height: 9%;
+}
+
 @media (max-width: 480px) {
   .last-page-phrase {
     font-size: 17px;
