@@ -62,18 +62,21 @@
 
 ### wrangler.toml
 ```toml
+name = "mt-naeun-wedding"
 main = "functions/api/guestbook.ts"
 compatibility_date = "2025-10-04"
 
 [[d1_databases]]
-binding = "DB"
-database_name = "my_wedding"
+binding = "my_wedding"
+database_name = "my-wedding"
 database_id = "b980f0d8-8b10-431d-b2d2-45b8d9a5cc08"
 ```
 
+Functions 코드에서는 `context.env.my_wedding`으로 D1에 접근한다.
+
 ### 환경변수 (Cloudflare Dashboard)
 ```
-GROQ_API_KEY=<Groq API 키>
+GROQ_WEDDING_BOT_API_KEY=<Groq API 키>
 ```
 
 ---

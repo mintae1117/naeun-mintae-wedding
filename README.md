@@ -9,11 +9,9 @@
 | 분야             | 사용 기술                      |
 | ---------------- | ------------------------------ |
 | **FrontEnd**     | React, TypeScript, Vite        |
-| **Styling**      | CSS, Framer-Motion         |
+| **Styling**      | CSS, Styled Components, Framer Motion |
 | **배포 (CI/CD)** | Cloudflare Pages  |
 | **저장소 (storage)** | Cloudflare R2  |
 | **데이터베이스 (database)** | Cloudflare D1 SQL DB  |
 | **코드 관리**    | Git + GitHub                   |
 | **AI ChatBot**    | Groq + gpt-oss-120b + Cloudflare Env     |
-
-Ai, db, 목데이터 에 내용 (계좌 및 결혼식 정보) 나중에 최종 배포 전에 업데이트 해야함.
