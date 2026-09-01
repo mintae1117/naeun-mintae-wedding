@@ -64,8 +64,8 @@ export function parseSubwayInfo(description: string): SubwayLine[] {
 export function parseBusInfo(description: string): BusRoute[] {
   const routes: BusRoute[] = [];
 
-  // [간선] 또는 [지선] 다음에 오는 숫자들 파싱
-  const trunkRegex = /\[간선\]\s*([\d,\s]+)/;
+  // [간선] 또는 [지선] 다음에 오는 노선 번호 파싱 (750A처럼 영문자가 붙는 번호 포함)
+  const trunkRegex = /\[간선\]\s*([\d,\sA-Z]+)/;
   const branchRegex = /\[지선\]\s*([\d,\sA-Z]+)/;
 
   const trunkMatch = description.match(trunkRegex);
