@@ -28,6 +28,16 @@ export interface PersonProfile {
   tags: string[]; // 예: ["#ESFJ"]
 }
 
+/** 주차장 한 곳 — "[라벨] 설명" 한 줄로 그려지며, 라벨에 카카오맵 링크를 걸 수 있다. */
+export interface ParkingLot {
+  /** 예: "별관주차장" (대괄호 없이) */
+  label: string;
+  /** 예: "서소문성지역사박물관 공영주차장 (중구 칠패로 5)" */
+  description: string;
+  /** 라벨을 눌렀을 때 열 카카오맵 장소 URL */
+  mapUrl?: string;
+}
+
 export interface Venue {
   name: string;
   address: string;
@@ -36,8 +46,8 @@ export interface Venue {
   hall: string;
   mapUrl?: string;
   transportation: Transportation[];
-  /** 주차 안내 — 한 항목이 화면의 한 줄이다. */
-  parking: string[];
+  /** 주차 안내 — 한 항목이 화면의 한 줄이다. 문자열은 그대로, ParkingLot은 "[라벨] 설명"으로 표시. */
+  parking: (string | ParkingLot)[];
   /** 주차 안내 아래에 작게 붙는 참고 멘트(정보가 아니라 하고 싶은 말). */
   parkingNote?: string;
 }

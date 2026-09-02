@@ -68,11 +68,19 @@ export const mockWeddingData: WeddingData = {
     ],
     parking: [
       "본관주차장, 별관주차장 이용 가능 (2시간 무료)",
-      "[별관주차장] 서소문공원 (중구 칠패로 5)",
-      "[본관주차장] 브라운스톤서울 (중구 청파로 464)",
+      {
+        label: "별관주차장",
+        description: "서소문성지역사박물관 공영주차장 (중구 칠패로 5)",
+        mapUrl: "https://place.map.kakao.com/255867033",
+      },
+      {
+        label: "본관주차장",
+        description: "브라운스톤서울 (중구 청파로 464)",
+        mapUrl: "https://place.map.kakao.com/631673913",
+      },
     ],
     parkingNote:
-      "별관(서소문공원) 주차장을 이용하시면 더욱 여유롭게 주차하실 수 있어요.",
+      "별관 주차장(서소문성지역사박물관 공영주차장)을 이용하시면 더욱 여유롭게 주차하실 수 있어요.",
   },
   parents: {
     groom: {

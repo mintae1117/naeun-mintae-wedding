@@ -161,11 +161,31 @@ export const Location: React.FC<LocationProps> = ({ data }) => {
 
           <div className="parking-info">
             <h4 className="parking-title">주차 안내</h4>
-            {data.venue.parking.map((line, idx) => (
-              <p key={idx} className="parking-description">
-                {line}
-              </p>
-            ))}
+            {data.venue.parking.map((line, idx) =>
+              typeof line === "string" ? (
+                <p key={idx} className="parking-description">
+                  {line}
+                </p>
+              ) : (
+                <p key={idx} className="parking-description">
+                  [
+                  {line.mapUrl ? (
+                    <a
+                      href={line.mapUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="parking-link"
+                      aria-label={`${line.label} 카카오맵에서 보기`}
+                    >
+                      {line.label}
+                    </a>
+                  ) : (
+                    line.label
+                  )}
+                  ] {line.description}
+                </p>
+              )
+            )}
             {data.venue.parkingNote && (
               <p className="parking-note">※ {data.venue.parkingNote}</p>
             )}

@@ -1121,6 +1121,19 @@ section {
   margin-top: 6px;
 }
 
+/* 주차장 라벨 링크 — 카카오맵으로 이동. 본문 톤은 유지하고 눌러볼 수 있다는 힌트만 준다 */
+.parking-link {
+  color: #8b7355;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(139, 115, 85, 0.45);
+  text-underline-offset: 3px;
+}
+
+.parking-link:active {
+  opacity: 0.7;
+}
+
 /* 주차 참고 멘트 — 정보가 아니라 하고 싶은 말이라 작고 옅게, 참고사항처럼 */
 .parking-note {
   margin: 12px 0 0;
