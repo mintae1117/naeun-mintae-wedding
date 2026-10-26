@@ -1,0 +1,119 @@
+/* 감사 인사 페이지 (/thanks/) — 청첩장 팔레트(크림·브라운) 위에 흰 카드 한 장.
+   App.css 를 통째로 끌고 오지 않도록 이 페이지에 필요한 전역 규칙만 여기서 선언한다. */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Gowun Batang", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Helvetica Neue", serif;
+  -webkit-font-smoothing: antialiased;
+  background-color: #f4f1ec;
+  color: #333;
+}
+
+.thanks-page {
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.thanks-card {
+  width: 100%;
+  max-width: 440px;
+  background-color: #fff;
+  padding: 56px 28px 52px;
+  text-align: center;
+  box-shadow: 0 2px 18px rgba(139, 115, 85, 0.08);
+  animation: thanks-fade 0.9s ease-out both;
+}
+
+.thanks-title {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #333;
+  margin-bottom: 36px;
+}
+
+/* 흰 매트 액자 — 참고 시안처럼 사진 둘레에 흰 여백 + 옅은 그림자 */
+.thanks-photo-frame {
+  width: 72%;
+  max-width: 300px;
+  margin: 0 auto 38px;
+  padding: 12px;
+  background-color: #fff;
+  border: 1px solid #efe9e2;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.thanks-photo-frame img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+}
+
+.thanks-text {
+  font-size: 15px;
+  line-height: 1.95;
+  color: #444;
+  /* 줄바꿈은 <br> 로 고정하되, 좁은 화면에서 한 줄이 넘치면 어절 단위로 접히게 */
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+  margin-bottom: 26px;
+}
+
+.thanks-sign {
+  margin-top: 36px;
+  font-size: 15px;
+  line-height: 1.9;
+  color: #333;
+}
+
+.thanks-sign span {
+  display: block;
+}
+
+@keyframes thanks-fade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* 폰 너비에선 바깥·카드 여백을 줄여 본문 긴 줄("보내주신 모든 분들께 …")이 한 줄에 들어가게 */
+@media (max-width: 480px) {
+  .thanks-page {
+    padding: 12px;
+  }
+
+  .thanks-card {
+    padding: 44px 18px 44px;
+  }
+
+  .thanks-title {
+    font-size: 24px;
+  }
+
+  .thanks-text {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 360px) {
+  .thanks-text,
+  .thanks-sign {
+    font-size: 13.5px;
+  }
+}
